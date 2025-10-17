@@ -8,25 +8,42 @@
 <body>
     <header>
         <img src="" alt="">
-        <input type="text" id="buscaInput" placeholder="Busca"/>
+        <input type="text" id="buscaInput" placeholder="/ Busca"/>
         <button>Entrar</button>
         <button>Cadastrar</button>
     </header>
 
     <nav id="sidebar">
         <ul>
-            <li><a href="#">Início</a></li>
+            <li><a href="#main">Início</a></li>
             <li><a href="#">Explorar</a></li>
-            <li><a href="#">Álbuns</a></li>
             <li><a href="#">Playlists</a></li>
             <li><a href="#">Músicas</a></li>
+            <li><a href="#">PodCasts</a></li>
         </ul>   
     </nav>
 
-    <main>
-        <section>
-            
+    <main id="main">
+        <section class="most-played">
+            <h1>Mais Tocadas</h1>
         </section>
+
+        <section class="recents-albums">
+            <h1>Álbuns Recentes</h1>
+        </section>
+
+        <section class="selected">
+            <h1>Selecionado pra você</h1>
+        </section>
+
+        <section class="recent-music">
+            <h1>Lançadas Recentemente</h1>
+        </section>
+
+        <section class="top-playlists">
+            <h1>Top Playlists</h1>
+        </section>
+
     </main>
 
     <footer>
