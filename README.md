@@ -1,7 +1,7 @@
 #Eko Music
 **Eko Music** é um projeto de streaming musical desenvolvido com foco em simplicidade, responsividade e uma experiência intuitiva para o usuário. Criado com HTML, CSS e JavaScript, o sistema permite que os usuários explorem, ouçam e gerenciem suas músicas favoritas por meio de uma interface moderna e funcional.
 ---
-## 📌 Descrição
+##Descrição
 O objetivo principal do Eko Music é oferecer uma plataforma leve e acessível para reprodução de músicas online. O projeto simula um serviço de streaming musical com funcionalidades essenciais, ideal para fins educacionais, protótipos ou como base para projetos mais robustos.
 ---
 ##Telas Principais
