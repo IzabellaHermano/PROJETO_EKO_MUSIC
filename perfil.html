@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/popupsair.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/b690a6b06f.js" crossorigin="anonymous"></script>
+    <title>Meu Perfil - Eko Music</title>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="imgs/logo.png" alt="Logo">
+    </div>
+    <nav id="sidebar"> 
+    <ul>
+      <li><a href="home.html#main"><i class="fas fa-house"></i> Início</a></li>
+      <li><a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a></li>
+      <li><a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a></li>
+      <li><a href="#"><i class="fas fa-podcast"></i> PodCasts</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <button onclick="abrirPopUp()">Sair</button>
+     <div class="popup" id="popup">
+        <div class="popup-content">
+          <span id="confirmar">Tem certeza de que deseja sair?</span> <br>
+          <a href="index.html"><button>Sair</button></a>
+          <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
+        </div>
+      </div>
+  </header>
+
+      <main>
+
+      </main>
+
+    <footer>
+        &copy; 2025 Sua Plataforma Musical
+    </footer>
+
+      <script src="scripts/popupsair.js"></script>
+</body>
+</html>

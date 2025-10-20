@@ -2,11 +2,16 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
+  <title>Home - Eko Music</title>
   <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/home.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/popupsair.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/b690a6b06f.js" crossorigin="anonymous"></script>
+  <style>
+     
+  </style>
 </head>
 <body>
 
@@ -17,30 +22,41 @@
   <nav id="sidebar"> 
     <ul>
       <li><a href="#main"><i class="fas fa-house"></i> Início</a></li>
-      <li><a href="#"><i class="fas fa-compass"></i> Explorar</a></li>
-      <li><a href="#"><i class="fas fa-list"></i> Biblioteca</a></li>
+      <li><a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a></li>
+      <li><a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a></li>
       <li><a href="#"><i class="fas fa-podcast"></i> PodCasts</a></li>
     </ul>
   </nav>
 
   <header>
-    <button>Entrar</button>
-    <button>Cadastrar-se</button>
+    <a href="perfil.html"><button>Perfil</button></a>
+    <button onclick="abrirPopUp()">Sair</button>
+     <div class="popup" id="popup">
+        <div class="popup-content">
+          <span id="confirmar">Tem certeza de que deseja sair?</span> <br>
+          <a href="index.html"><button>Sair</button></a>
+          <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
+        </div>
+      </div>
   </header>
 
   <main id="main"> 
     <section class="music-list"> 
       <h1>Músicas</h1> 
+
       <div class="music-row"> 
         <div class="cover-container">
            <img src="imgs/musicas-albuns/lugar-ao-sol_100_charliebrownjr.png" alt="Lugar ao Sol"> 
-           <div class="play"> <i class="fas fa-play"></i> 
+           <div class="play"> <i class="fa-solid fa-play"></i>
           </div> 
         </div> 
         <span class="title">Lugar ao Sol</span> 
         <span class="artist">Charlie Brown Jr</span> 
         <span class="genre">Rock</span> <span class="album">100% Charlie Brown Jr</span> 
-        <span class="favorite"><i class="far fa-heart"></i></span> </div> <div class="music-row"> 
+        <span class="favorite"><i class="far fa-heart"></i></span> 
+      </div> 
+        
+        <div class="music-row">
           <div class="cover-container"> <img src="imgs/musicas-albuns/supera-pericles_pagode-do-pericao.png" alt="Supera"> 
             <div> 
               <div class="play"> 
@@ -53,10 +69,11 @@
           <span class="genre">Pagode</span> 
           <span class="album">Ao Vivo</span> 
           <span class="favorite"><i class="far fa-heart"></i></span> 
-        </div> 
+        </div>
+
         <div class="music-row"> 
           <div class="cover-container"> 
-            <img src="imgs/musicas-albuns/hot-to-go_chappel-roan.jpeg" alt="Supera"> 
+            <img src="imgs/musicas-albuns/hot-to-go_chappel-roan.jpeg" alt="Hot To Go"> 
             <div> 
               <div class="play"> <i class="fas fa-play"></i> 
               </div> 
@@ -67,7 +84,8 @@
           <span class="genre">Pop</span> 
           <span class="album">The Rise and Fall of a Midwest Princess</span> 
           <span class="favorite"><i class="far fa-heart"></i></span> 
-        </div> 
+        </div>
+
   </section>
 
     <section class="recents-albums">
@@ -84,28 +102,132 @@
 
         <div class="album-card">
           <div class="album-cover">
-            <img src="imgs/musicas-albuns/teu-segredo_ludmilla-funk-dance.png" alt="Funk Dance">
+            <img src="imgs/musicas-albuns/teu-segredo_ludmilla-funk-dance.png" alt="Starboy">
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
-          <h3>Funk Dance</h3>
-          <p>Ludmilla</p>
+          <h3>Starboy</h3>
+          <p>The Weeknd</p>
         </div>
 
         <div class="album-card">
           <div class="album-cover">
-            <img src="imgs/musicas-albuns/olho-de-tigre_emicida-amarElo.png" alt="AmarElo">
+            <img src="imgs/musicas-albuns/olho-de-tigre_emicida-amarElo.png" alt="No More Tears">
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
-          <h3>AmarElo</h3>
-          <p>Emicida</p>
+          <h3>No More Tears</h3>
+          <p>Ozzy Osbourne</p>
         </div>
       </div>
     </section>
+
+     <section class="selected">
+    <h1>Selecionado pra você</h1>
+    <div class="album-grid">
+      <div class="album-card">
+          <div class="album-cover">
+            <img src="imgs/musicas-albuns/" alt="Os muleke é liso">
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Os muleke é liso</h3>
+          <p>MC Rodolfinho</p>
+        </div>
+
+        <div class="album-card">
+          <div class="album-cover">
+            <img src="imgs/musicas-albuns/" alt="Rap é Compromisso">
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Rap é compromisso</h3>
+          <p>Sabotage</p>
+        </div>
+
+        <div class="album-card">
+          <div class="album-cover">
+            <img src="imgs/musicas-albuns/olho-de-tigre_emicida-amarElo.png" alt="Esse é o Clima">
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Esse é o Clima</h3>
+          <p>Turma do pagode</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="recent-music">
+    <h1>Lançadas Recentemente</h1>
+    <div class="music-grid">
+
+      <div class="music-row"> 
+        <div class="cover-container">
+           <img src="imgs/musicas-albuns/" alt="505"> 
+           <div class="play"> <i class="fas fa-play"></i> 
+          </div> 
+        </div> 
+        <span class="title">505</span> 
+        <span class="artist">Arctic Monkeys</span> 
+        <span class="genre">Pop</span> <span class="album">The Favorite Worst Nightmare</span> 
+        <span class="favorite"><i class="far fa-heart"></i></span> 
+      </div>
+
+      <div class="music-row"> 
+        <div class="cover-container">
+           <img src="imgs/musicas-albuns/lugar-ao-sol_100_charliebrownjr.png" alt="Da Ponte pra Cá"> 
+           <div class="play"> <i class="fas fa-play"></i> 
+          </div> 
+        </div> 
+        <span class="title">Da Ponte pra Cá</span> 
+        <span class="artist">Racionais MC's</span> 
+        <span class="genre">Rap</span> <span class="album">Nada como um dia após o outro dia</span> 
+        <span class="favorite"><i class="far fa-heart"></i></span> 
+      </div>
+
+      <div class="music-row"> 
+        <div class="cover-container">
+           <img src="imgs/musicas-albuns/lugar-ao-sol_100_charliebrownjr.png" alt="Teu Segredo"> 
+           <div class="play"> <i class="fas fa-play"></i> 
+          </div> 
+        </div> 
+        <span class="title">Teu segredo</span> 
+        <span class="artist">Exaltasamba</span> 
+        <span class="genre">Pagode</span> <span class="album">Ao Vivo Na Ilha Da Magia</span> 
+        <span class="favorite"><i class="far fa-heart"></i></span> 
+      </div>
+
+    </div>
+  </section>
+
+  <section class="top-playlists">
+    <h1>Top Playlists</h1>
+    <div class="playlist-grid">
+
+      <div class="playlist-card">
+          <div class="playlist-cover">
+            <img src="imgs/playlists/" alt="Playlist Padrão1">
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Brasilidades</h3>
+          <p>Por: João Nere</p>
+        </div>
+   
+
+      <div class="playlist-card">
+        <div class="playlist-cover">
+          <img src="imgs/playlists/" alt="Playlist Padrão2">
+          <div class="play-overlay"><i class="fas fa-play"></i></div>
+        </div>
+        <h3>Rock</h3>
+        <p>Por: Ricardo Orrico</p>
+      </div>
+
+    </div>
+  </section>
+
   </main>
 
   <footer>
     &copy; 2025 Sua Plataforma Musical
   </footer>
+
+<script src="scripts/popupsair.js"></script>
 
 </body>
 </html>
