@@ -7,6 +7,13 @@ body {
   height: 100vh;
 }
 
+main {
+  margin-left: 240px;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
 /* Sidebar e logo fixos à esquerda */
 .logo-container {
   position: fixed;
@@ -71,7 +78,6 @@ body {
   font-size: 20px;
 }
 
-/*header*/
 header {
   margin-left: 220px;
   padding: 20px;

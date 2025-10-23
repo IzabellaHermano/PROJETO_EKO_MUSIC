@@ -1,0 +1,80 @@
+
+main h1 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #333;
+}
+
+section {
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  color: #444;
+  border-left: 6px solid #333;
+  padding-left: 12px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.campo strong {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.campo span,
+.campo input,
+.campo select,
+.campo textarea {
+  font-size: 1rem;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+#generosfavsInput label {
+  display: inline-block;
+  margin: 8px 16px 8px 0;
+  font-size: 0.95rem;
+}
+
+.editar {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #646464;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.editar:hover {
+  background-color: #000000;
+}
+
+.editar i {
+  margin-right: 6px;
+}
