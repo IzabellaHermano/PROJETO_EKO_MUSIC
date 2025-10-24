@@ -1,310 +1,351 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/popupsair.css">
-    <link rel="stylesheet" href="css/perfil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://kit.fontawesome.com/b690a6b06f.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/popupsair.css" />
+    <link rel="stylesheet" href="css/perfil.css" />
+    <link rel="icon" href="assets/icon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/b690a6b06f.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Meu Perfil - Eko Music</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="logo-container">
-        <img src="assets/logo-header.png" alt="Logo">
+      <img src="assets/logo-header.png" alt="Logo" />
     </div>
-    <nav id="sidebar"> 
-    <ul>
-      <li><a href="home.html#main"><i class="fas fa-house"></i> Início</a></li>
-      <li><a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a></li>
-      <li><a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a></li>
-      <li><a href="#"><i class="fas fa-podcast"></i> PodCasts</a></li>
-    </ul>
-  </nav>
+    <nav id="sidebar">
+      <ul>
+        <li>
+          <a href="home.html#main"><i class="fas fa-house"></i> Início</a>
+        </li>
+        <li>
+          <a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a>
+        </li>
+        <li>
+          <a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-podcast"></i> PodCasts</a>
+        </li>
+      </ul>
+    </nav>
 
-  <header>
-    <button onclick="abrirPopUp()">Sair</button>
-     <div class="popup" id="popup">
+    <header>
+      <button onclick="abrirPopUp()">Sair</button>
+      <div class="popup" id="popup">
         <div class="popup-content">
-          <span id="confirmar">Tem certeza de que deseja sair?</span> <br>
+          <span id="confirmar">Tem certeza de que deseja sair?</span> <br />
           <a href="index.html"><button>Sair</button></a>
           <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
         </div>
       </div>
-  </header>
+    </header>
 
-  <main>
-    <h1><i class="fas fa-sliders-h"></i> Meu Perfil</h1>
+    <main>
+      <h1><i class="fas fa-sliders-h"></i> Meu Perfil</h1>
 
-    <section class="info-perfil">
-      <h2><i class="fa-solid fa-user"></i> Informações Pessoais</h2>
+      <section class="info-perfil">
+        <h2><i class="fa-solid fa-user"></i> Informações Pessoais</h2>
 
-      <div class="campo">
-        <strong>Nome Real:</strong>
-        <span id="nomeReal"></span>
-        <input type="text" id="nomeRealInput" style="display:none;" />
-      </div>
+        <div class="campo">
+          <strong>Nome Real:</strong>
+          <span id="nomeReal"></span>
+          <input type="text" id="nomeRealInput" style="display: none" />
+        </div>
 
-      <div class="campo">
-        <strong>Nome de usuário:</strong>
-        <span id="nome"></span>
-        <input type="text" id="nomeInput" style="display:none;" />
-      </div>
+        <div class="campo">
+          <strong>Nome de usuário:</strong>
+          <span id="nome"></span>
+          <input type="text" id="nomeInput" style="display: none" />
+        </div>
 
-      <div class="campo">
-        <strong>Email:</strong>
-        <span id="email"></span>
-        <input type="text" id="emailInput" style="display:none;" />
-      </div>
+        <div class="campo">
+          <strong>Email:</strong>
+          <span id="email"></span>
+          <input type="text" id="emailInput" style="display: none" />
+        </div>
 
-      <div class="campo">
-        <strong>Telefone:</strong>
-        <span id="telefone"></span>
-        <input type="text" id="telefoneInput" style="display:none;" />
-      </div>
+        <div class="campo">
+          <strong>Telefone:</strong>
+          <span id="telefone"></span>
+          <input type="text" id="telefoneInput" style="display: none" />
+        </div>
 
-      <div class="campo">
-        <strong>Data de nascimento</strong>
-        <span id="datanascimento"></span>
-        <input type="date" id="dataNascimentoInput" style="display:none;" />
-      </div>
-      
-      <div class="campo">
-        <strong>País:</strong>
-        <span id="pais"></span>
-        <select id="paisInput" style="display:none;">
-          <option value="">Selecione seu país</option>
-          <option value="brasil">Brasil</option>
-          <option value="argentina">Argentina</option>
-          <option value="estados-unidos">Estados Unidos</option>
-          <option value="canada">Canadá</option>
-          <option value="mexico">México</option>
-          <option value="alemanha">Alemanha</option>
-          <option value="franca">França</option>
-          <option value="italia">Itália</option>
-          <option value="espanha">Espanha</option>
-          <option value="portugal">Portugal</option>
-          <option value="reino-unido">Reino Unido</option>
-          <option value="australia">Austrália</option>
-          <option value="japao">Japão</option>
-          <option value="china">China</option>
-          <option value="coreia-do-sul">Coreia do Sul</option>
-          <option value="india">Índia</option>
-          <option value="africa-do-sul">África do Sul</option>
-          <option value="egito">Egito</option>
-          <option value="russia">Rússia</option>
-          <option value="arabia-saudita">Arábia Saudita</option>
-          <option value="emirados-arabes">Emirados Árabes Unidos</option>
-          <option value="chile">Chile</option>
-          <option value="colombia">Colômbia</option>
-          <option value="peru">Peru</option>
-          <option value="uruguai">Uruguai</option>
-          <option value="paraguai">Paraguai</option>
-          <option value="bolivia">Bolívia</option>
-          <option value="venezuela">Venezuela</option>
-          <option value="ucrania">Ucrânia</option>
-          <option value="suecia">Suécia</option>
-          <option value="noruega">Noruega</option>
-          <option value="dinamarca">Dinamarca</option>
-          <option value="finlandia">Finlândia</option>
-          <option value="polonia">Polônia</option>
-          <option value="holanda">Holanda</option>
-          <option value="belgica">Bélgica</option>
-          <option value="suica">Suíça</option>
-          <option value="austria">Áustria</option>
-          <option value="grecia">Grécia</option>
-          <option value="turquia">Turquia</option>
-          <option value="indonesia">Indonésia</option>
-          <option value="tailandia">Tailândia</option>
-          <option value="vietna">Vietnã</option>
-          <option value="filipinas">Filipinas</option>
-          <option value="malasia">Malásia</option>
-          <option value="singapura">Singapura</option>
-          <option value="nova-zelandia">Nova Zelândia</option>
-          <option value="nigeria">Nigéria</option>
-          <option value="quenia">Quênia</option>
-          <option value="marrocos">Marrocos</option>
-        </select>
-      </div>
+        <div class="campo">
+          <strong>Data de nascimento</strong>
+          <span id="datanascimento"></span>
+          <input type="date" id="dataNascimentoInput" style="display: none" />
+        </div>
 
-      <div class="campo">
-        <strong>Gênero:</strong>
-        <span id="genero"></span>
-        <select id="generoInput" style="display:none;">
-          <option value="">Selecione seu gênero</option>
-          <option value="masculino">Masculino</option>
-          <option value="feminino">Feminino</option>
-          <option value="outro">Outro</option>
-          <option value="nao-informar">Prefiro não informar</option>
-        </select>
-      </div>
+        <div class="campo">
+          <strong>País:</strong>
+          <span id="pais"></span>
+          <select id="paisInput" style="display: none">
+            <option value="">Selecione seu país</option>
+            <option value="brasil">Brasil</option>
+            <option value="argentina">Argentina</option>
+            <option value="estados-unidos">Estados Unidos</option>
+            <option value="canada">Canadá</option>
+            <option value="mexico">México</option>
+            <option value="alemanha">Alemanha</option>
+            <option value="franca">França</option>
+            <option value="italia">Itália</option>
+            <option value="espanha">Espanha</option>
+            <option value="portugal">Portugal</option>
+            <option value="reino-unido">Reino Unido</option>
+            <option value="australia">Austrália</option>
+            <option value="japao">Japão</option>
+            <option value="china">China</option>
+            <option value="coreia-do-sul">Coreia do Sul</option>
+            <option value="india">Índia</option>
+            <option value="africa-do-sul">África do Sul</option>
+            <option value="egito">Egito</option>
+            <option value="russia">Rússia</option>
+            <option value="arabia-saudita">Arábia Saudita</option>
+            <option value="emirados-arabes">Emirados Árabes Unidos</option>
+            <option value="chile">Chile</option>
+            <option value="colombia">Colômbia</option>
+            <option value="peru">Peru</option>
+            <option value="uruguai">Uruguai</option>
+            <option value="paraguai">Paraguai</option>
+            <option value="bolivia">Bolívia</option>
+            <option value="venezuela">Venezuela</option>
+            <option value="ucrania">Ucrânia</option>
+            <option value="suecia">Suécia</option>
+            <option value="noruega">Noruega</option>
+            <option value="dinamarca">Dinamarca</option>
+            <option value="finlandia">Finlândia</option>
+            <option value="polonia">Polônia</option>
+            <option value="holanda">Holanda</option>
+            <option value="belgica">Bélgica</option>
+            <option value="suica">Suíça</option>
+            <option value="austria">Áustria</option>
+            <option value="grecia">Grécia</option>
+            <option value="turquia">Turquia</option>
+            <option value="indonesia">Indonésia</option>
+            <option value="tailandia">Tailândia</option>
+            <option value="vietna">Vietnã</option>
+            <option value="filipinas">Filipinas</option>
+            <option value="malasia">Malásia</option>
+            <option value="singapura">Singapura</option>
+            <option value="nova-zelandia">Nova Zelândia</option>
+            <option value="nigeria">Nigéria</option>
+            <option value="quenia">Quênia</option>
+            <option value="marrocos">Marrocos</option>
+          </select>
+        </div>
 
-      <div class="campo">
-        <strong>Biografia:</strong>
-        <span id="biografia"></span>
-        <textarea id="biografiaInput" style="display:none;"></textarea>
-      </div>
+        <div class="campo">
+          <strong>Gênero:</strong>
+          <span id="genero"></span>
+          <select id="generoInput" style="display: none">
+            <option value="">Selecione seu gênero</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+            <option value="nao-informar">Prefiro não informar</option>
+          </select>
+        </div>
 
-      <button class="editar" id="editarBtn"><i class="fas fa-pen"></i> Editar Informações</button> 
-    </section>
+        <div class="campo">
+          <strong>Biografia:</strong>
+          <span id="biografia"></span>
+          <textarea id="biografiaInput" style="display: none"></textarea>
+        </div>
 
-    <section class="preferencias-musicais">
-  <h2><i class="fa-solid fa-music"></i> Preferências de Músicas</h2>
+        <button class="editar" id="editarBtn">
+          <i class="fas fa-pen"></i> Editar Informações
+        </button>
+      </section>
 
-  <div class="campo">
-    <strong>Gênero Favorito:</strong>
-    <span id="generosfavs"></span>
-    <div id="generosfavsInput" multiple style="display:none;">
-      <label><input type="checkbox" value="rock"> Rock</label><br>
-      <label><input type="checkbox" value="pop"> Pop</label><br>
-      <label><input type="checkbox" value="hip-hop"> Hip-Hop</label><br>
-      <label><input type="checkbox" value="funk"> Funk</label><br>
-      <label><input type="checkbox" value="mpb"> MPB</label><br>
-      <label><input type="checkbox" value="samba"> Samba</label><br>
-      <label><input type="checkbox" value="pagode"> Pagode</label><br>
-      <label><input type="checkbox" value="forro"> Forró</label><br>
-      <label><input type="checkbox" value="sertanejo"> Sertanejo</label><br>
-      <label><input type="checkbox" value="jazz"> Jazz</label><br>
-      <label><input type="checkbox" value="classical"> Classical</label><br>
-      <label><input type="checkbox" value="electronic"> Electronic</label><br>
-      <label><input type="checkbox" value="reggae"> Reggae</label>
-    </div>
-  </div>
+      <section class="preferencias-musicais">
+        <h2><i class="fa-solid fa-music"></i> Preferências de Músicas</h2>
 
-  <div class="campo">
-    <strong>Artistas Favoritos:</strong>
-    <span id="artistasfavs"></span>
-    <input type="text" id="artistasfavsInput" style="display:none;" placeholder="Ex: Emicida, Ludmilla, Charlie Brown Jr" />
-  </div>
+        <div class="campo">
+          <strong>Gênero Favorito:</strong>
+          <span id="generosfavs"></span>
+          <div id="generosfavsInput" multiple style="display: none">
+            <label><input type="checkbox" value="rock" /> Rock</label><br />
+            <label><input type="checkbox" value="pop" /> Pop</label><br />
+            <label><input type="checkbox" value="hip-hop" /> Hip-Hop</label
+            ><br />
+            <label><input type="checkbox" value="funk" /> Funk</label><br />
+            <label><input type="checkbox" value="mpb" /> MPB</label><br />
+            <label><input type="checkbox" value="samba" /> Samba</label><br />
+            <label><input type="checkbox" value="pagode" /> Pagode</label><br />
+            <label><input type="checkbox" value="forro" /> Forró</label><br />
+            <label><input type="checkbox" value="sertanejo" /> Sertanejo</label
+            ><br />
+            <label><input type="checkbox" value="jazz" /> Jazz</label><br />
+            <label><input type="checkbox" value="classical" /> Classical</label
+            ><br />
+            <label
+              ><input type="checkbox" value="electronic" /> Electronic</label
+            ><br />
+            <label><input type="checkbox" value="reggae" /> Reggae</label>
+          </div>
+        </div>
 
-  <button class="editar" id="editarPreferenciasBtn"><i class="fas fa-pen"></i> Editar Informações</button>
-</section>
+        <div class="campo">
+          <strong>Artistas Favoritos:</strong>
+          <span id="artistasfavs"></span>
+          <input
+            type="text"
+            id="artistasfavsInput"
+            style="display: none"
+            placeholder="Ex: Emicida, Ludmilla, Charlie Brown Jr"
+          />
+        </div>
 
-  <section class="seguranca-conta">
-  <h2><i class="fa-solid fa-shield-halved"></i> Segurança e Conta</h2>
+        <button class="editar" id="editarPreferenciasBtn">
+          <i class="fas fa-pen"></i> Editar Informações
+        </button>
+      </section>
 
-  <div class="campo">
-  <strong>Senha</strong>
-  <div class="senha-wrapper">
-    <input id="senhaInput" type="password" disabled />
-    <button type="button" class="toggle-senha" onclick="toggleSenha()">
-      <i id="iconeSenha" class="fa-solid fa-eye-slash"></i>
-    </button>
-  </div>
-  <button id="alterarSenhaBtn" style="display: none;">Alterar senha</button>
-</div>
+      <section class="seguranca-conta">
+        <h2><i class="fa-solid fa-shield-halved"></i> Segurança e Conta</h2>
 
-<!-- popup de alteração de senha -->
-<div id="popupSenha" class="popup-senha">
-  <div class="popup-conteudo">
-    <h3>Alterar senha</h3>
-    <input id="senhaAtualPopup" type="password" placeholder="Senha atual" />
-    <input id="novaSenhaPopup" type="password" placeholder="Nova senha" />
-    <span id="erroPopup" class="erro-popup">Senha atual incorreta.</span>
-    <div class="popup-botoes">
-      <button id="confirmarPopup">Confirmar</button>
-      <button id="cancelarPopup">Cancelar</button>
-    </div>
-  </div>
-</div>
+        <div class="campo">
+          <strong>Senha</strong>
+          <div class="senha-wrapper">
+            <input id="senhaInput" type="password" disabled />
+            <button type="button" class="toggle-senha" onclick="toggleSenha()">
+              <i id="iconeSenha" class="fa-solid fa-eye-slash"></i>
+            </button>
+          </div>
+          <button id="alterarSenhaBtn" style="display: none">
+            Alterar senha
+          </button>
+        </div>
 
+        <!-- popup de alteração de senha -->
+        <div id="popupSenha" class="popup-senha">
+          <div class="popup-conteudo">
+            <h3>Alterar senha</h3>
+            <input
+              id="senhaAtualPopup"
+              type="password"
+              placeholder="Senha atual"
+            />
+            <input
+              id="novaSenhaPopup"
+              type="password"
+              placeholder="Nova senha"
+            />
+            <span id="erroPopup" class="erro-popup"
+              >Senha atual incorreta.</span
+            >
+            <div class="popup-botoes">
+              <button id="confirmarPopup">Confirmar</button>
+              <button id="cancelarPopup">Cancelar</button>
+            </div>
+          </div>
+        </div>
 
+        <div class="campo">
+          <strong>Autenticação de dois fatores (2FA):</strong>
+          <span id="autenticacao2FA"></span>
+          <select id="autenticacao2FAInput" style="display: none">
+            <option value="ativado">Ativado</option>
+            <option value="desativado">Desativado</option>
+          </select>
+        </div>
 
+        <div class="campo">
+          <strong>Data de criação da conta:</strong>
+          <span id="dataCriacaoConta"></span>
+        </div>
 
+        <div class="campo">
+          <strong>Último login:</strong>
+          <span id="ultimoLogin"></span>
+        </div>
 
-  <div class="campo">
-    <strong>Autenticação de dois fatores (2FA):</strong>
-    <span id="autenticacao2FA"></span>
-    <select id="autenticacao2FAInput" style="display:none;">
-      <option value="ativado">Ativado</option>
-      <option value="desativado">Desativado</option>
-    </select>
-  </div>
+        <button class="editar" id="editarSegurancaBtn">
+          <i class="fas fa-pen"></i> Editar Informações
+        </button>
+      </section>
 
-  <div class="campo">
-    <strong>Data de criação da conta:</strong>
-    <span id="dataCriacaoConta"></span>
-  </div>
+      <section class="configuracoes-preferencias">
+        <h2>
+          <i class="fa-solid fa-screwdriver-wrench"></i> Configurações e
+          Preferências
+        </h2>
 
-  <div class="campo">
-    <strong>Último login:</strong>
-    <span id="ultimoLogin"></span>
-  </div>
+        <div class="campo">
+          <strong>Tema:</strong>
+          <span id="tema"></span>
+          <select id="temaInput" style="display: none">
+            <option value="claro">Claro</option>
+            <option value="escuro">Escuro</option>
+          </select>
+        </div>
 
-  <button class="editar" id="editarSegurancaBtn"><i class="fas fa-pen"></i> Editar Informações</button>
-</section>
+        <div class="campo">
+          <strong>Idioma:</strong>
+          <span id="idioma"></span>
+          <select id="idiomaInput" style="display: none">
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="en-US">English (US)</option>
+            <option value="es-ES">Español</option>
+          </select>
+        </div>
 
-<section class="configuracoes-preferencias">
-  <h2><i class="fa-solid fa-screwdriver-wrench"></i> Configurações e Preferências</h2>
+        <div class="campo">
+          <strong>Notificações por email:</strong>
+          <span id="notificacoesEmail"></span>
+          <select id="notificacoesEmailInput" style="display: none">
+            <option value="ativado">Ativado</option>
+            <option value="desativado">Desativado</option>
+          </select>
+        </div>
 
-  <div class="campo">
-    <strong>Tema:</strong>
-    <span id="tema"></span>
-    <select id="temaInput" style="display:none;">
-      <option value="claro">Claro</option>
-      <option value="escuro">Escuro</option>
-    </select>
-  </div>
+        <div class="campo">
+          <strong>Privacidade do perfil:</strong>
+          <span id="privacidadePerfil"></span>
+          <select id="privacidadePerfilInput" style="display: none">
+            <option value="publico">Público</option>
+            <option value="privado">Privado</option>
+          </select>
+        </div>
 
-  <div class="campo">
-    <strong>Idioma:</strong>
-    <span id="idioma"></span>
-    <select id="idiomaInput" style="display:none;">
-      <option value="pt-BR">Português (Brasil)</option>
-      <option value="en-US">English (US)</option>
-      <option value="es-ES">Español</option>
-    </select>
-  </div>
+        <button class="editar" id="editarConfiguracoesBtn">
+          <i class="fas fa-pen"></i> Editar Informações
+        </button>
+      </section>
 
-  <div class="campo">
-    <strong>Notificações por email:</strong>
-    <span id="notificacoesEmail"></span>
-    <select id="notificacoesEmailInput" style="display:none;">
-      <option value="ativado">Ativado</option>
-      <option value="desativado">Desativado</option>
-    </select>
-  </div>
+      <section class="estatisticas-usuario">
+        <h2><i class="fa-solid fa-chart-simple"></i> Estatísticas</h2>
 
-  <div class="campo">
-    <strong>Privacidade do perfil:</strong>
-    <span id="privacidadePerfil"></span>
-    <select id="privacidadePerfilInput" style="display:none;">
-      <option value="publico">Público</option>
-      <option value="privado">Privado</option>
-    </select>
-  </div>
+        <div class="campo">
+          <strong>Tempo total de reprodução:</strong>
+          <span id="tempoReproducao"></span>
+        </div>
 
-  <button class="editar" id="editarConfiguracoesBtn"><i class="fas fa-pen"></i> Editar Informações</button>
-</section>
+        <div class="campo">
+          <strong>Músicas mais ouvidas:</strong>
+          <span id="musicasMaisOuvidas"></span>
+        </div>
 
-<section class="estatisticas-usuario">
-  <h2><i class="fa-solid fa-chart-simple"></i> Estatísticas</h2>
+        <div class="campo">
+          <strong>Nível de engajamento:</strong>
+          <span id="nivelEngajamento"></span>
+        </div>
+      </section>
+    </main>
 
-  <div class="campo">
-    <strong>Tempo total de reprodução:</strong>
-    <span id="tempoReproducao"></span>
-  </div>
+    <footer>&copy; 2025 Sua Plataforma Musical</footer>
 
-  <div class="campo">
-    <strong>Músicas mais ouvidas:</strong>
-    <span id="musicasMaisOuvidas"></span>
-  </div>
-
-  <div class="campo">
-    <strong>Nível de engajamento:</strong>
-    <span id="nivelEngajamento"></span>
-  </div>
-</section>
-
-
-  </main>
-
-    <footer>
-        &copy; 2025 Sua Plataforma Musical
-    </footer>
-
-      <script src="scripts/popupsair.js"></script>
-      <script src="scripts/perfil.js"></script>
-</body>
+    <script src="scripts/popupsair.js"></script>
+    <script src="scripts/perfil.js"></script>
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
