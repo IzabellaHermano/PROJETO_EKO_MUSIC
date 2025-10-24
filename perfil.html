@@ -39,6 +39,13 @@
 
     <section class="info-perfil">
       <h2><i class="fa-solid fa-user"></i> Informações Pessoais</h2>
+
+      <div class="campo">
+        <strong>Nome Real:</strong>
+        <span id="nomeReal"></span>
+        <input type="text" id="nomeRealInput" style="display:none;" />
+      </div>
+
       <div class="campo">
         <strong>Nome de usuário:</strong>
         <span id="nome"></span>
@@ -173,14 +180,38 @@
 
   <button class="editar" id="editarPreferenciasBtn"><i class="fas fa-pen"></i> Editar Informações</button>
 </section>
+
   <section class="seguranca-conta">
   <h2><i class="fa-solid fa-shield-halved"></i> Segurança e Conta</h2>
 
   <div class="campo">
-    <strong>Senha:</strong>
-    <span id="senha">••••••••</span>
-    <input type="password" id="senhaInput" style="display:none;" />
+  <strong>Senha</strong>
+  <div class="senha-wrapper">
+    <input id="senhaInput" type="password" disabled />
+    <button type="button" class="toggle-senha" onclick="toggleSenha()">
+      <i id="iconeSenha" class="fa-solid fa-eye-slash"></i>
+    </button>
   </div>
+  <button id="alterarSenhaBtn" style="display: none;">Alterar senha</button>
+</div>
+
+<!-- popup de alteração de senha -->
+<div id="popupSenha" class="popup-senha">
+  <div class="popup-conteudo">
+    <h3>Alterar senha</h3>
+    <input id="senhaAtualPopup" type="password" placeholder="Senha atual" />
+    <input id="novaSenhaPopup" type="password" placeholder="Nova senha" />
+    <span id="erroPopup" class="erro-popup">Senha atual incorreta.</span>
+    <div class="popup-botoes">
+      <button id="confirmarPopup">Confirmar</button>
+      <button id="cancelarPopup">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+
+
 
   <div class="campo">
     <strong>Autenticação de dois fatores (2FA):</strong>
