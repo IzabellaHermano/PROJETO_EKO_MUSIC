@@ -1,46 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eko Music - Cadastro</title>
-  <link rel="stylesheet" href="css/forms.css">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-</head>
-<body class="login-bg">
-  <div class="login-box">
-    <img src="assets/identidade_visual/Combination Mark Vertical - Transparente.png" alt="Logo Eko" class="logo-login">
-    <h1 class="logo-text">Crie sua conta</h1>
-    <form id="formCadastro" class="form-login">
-      <input id="nomeRealInput" type="text" placeholder="Nome completo" required>
-      <input id="emailInput" type="email" placeholder="E-mail" required>
-      <input id="nomeInput" type="text" placeholder="Nome de usuário" required>
-      <input id="senhaInput" type="password" placeholder="Senha" required>
-      <input type="password" placeholder="Confirmar senha" required>
-      <button type="submit">Cadastrar</button>
-      <p class="small-text">Já possui conta? <a href="index.html">Entrar</a></p>
-    </form>
-     <footer>&copy; 2025 Eko Music</footer>
-  </div>
-  <script>
-    document.getElementById("formCadastro").addEventListener("submit", function(event) {
-     event.preventDefault(); //isso vai impedir o envio do form automaticamente
-      const user = {
-        nomeReal: document.getElementById("nomeRealInput").value,
-        email: document.getElementById("emailInput").value,
-        nome: document.getElementById("nomeInput").value,
-        senha: document.getElementById("senhaInput").value
-      };
-        localStorage.setItem("nomeReal", user.nomeReal);
-        localStorage.setItem("email", user.email);
-        localStorage.setItem("nome", user.nome);
-        localStorage.setItem("senha", user.senha);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eko Music - Cadastro</title>
+    <link rel="icon" href="assets/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="login-bg">
+    <div class="login-box">
+      <img
+        src="assets/identidade_visual/Combination Mark Vertical - Transparente.png"
+        alt="Logo Eko"
+        class="logo-login"
+      />
+      <h1 class="logo-text">Crie sua conta</h1>
+      <form id="formCadastro" class="form-login">
+        <input
+          id="nomeRealInput"
+          type="text"
+          placeholder="Nome completo"
+          required
+        />
+        <input id="emailInput" type="email" placeholder="E-mail" required />
+        <input
+          id="nomeInput"
+          type="text"
+          placeholder="Nome de usuário"
+          required
+        />
+        <input id="senhaInput" type="password" placeholder="Senha" required />
+        <input type="password" placeholder="Confirmar senha" required />
+        <button type="submit">Cadastrar</button>
+        <p class="small-text">
+          Já possui conta? <a href="index.html">Entrar</a>
+        </p>
+      </form>
+      <footer>&copy; 2025 Eko Music</footer>
+    </div>
+    <script>
+      document
+        .getElementById("formCadastro")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); //isso vai impedir o envio do form automaticamente
+          const user = {
+            nomeReal: document.getElementById("nomeRealInput").value,
+            email: document.getElementById("emailInput").value,
+            nome: document.getElementById("nomeInput").value,
+            senha: document.getElementById("senhaInput").value,
+          };
+          localStorage.setItem("nomeReal", user.nomeReal);
+          localStorage.setItem("email", user.email);
+          localStorage.setItem("nome", user.nome);
+          localStorage.setItem("senha", user.senha);
 
-        window.location.href = "home.html"; //para redirecionar 
-    });
-
-    
-  </script>
-</body>
+          window.location.href = "home.html"; //para redirecionar
+        });
+    </script>
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
