@@ -11,10 +11,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <script
-      src="https://kit.fontawesome.com/b690a6b06f.js"
-      crossorigin="anonymous"
-    ></script>
     <style>
       .popup-album {
         position: fixed;
@@ -29,74 +25,62 @@
         z-index: 9999;
       }
 
-      .popup-album.hidden {
-        display: none;
-      }
+    .popup-album.hidden {
+      display: none;
+    }
 
-      .popup-album-content {
-        position: relative;
-        background: #797979;
-        padding: 30px;
-        border-radius: 10px;
-        width: 900px;
-        max-height: 80vh;
-        overflow-y: auto;
-        color: white;
-      }
+    .popup-album-content {
+      position: relative;
+      background: #797979;
+      padding: 30px;
+      border-radius: 10px;
+      width: 900px;
+      max-height: 80vh;
+      overflow-y: auto;
+      color: white;
+    }
 
-      .popup-album-header {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 20px;
-      }
+    .popup-album-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
 
-      .popup-album-header img {
-        width: 120px;
-        height: 120px;
-        border-radius: 8px;
-        object-fit: cover;
-      }
+    .popup-album-header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
 
-      .popup-album-play {
-        background: #fe38b6;
-        border: none;
-        color: white;
-        font-size: 20px;
-        padding: 10px 14px;
-        border-radius: 50%;
-        cursor: pointer;
-      }
+    .popup-album-play {
+      background: #fe38b6;
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
-      .popup-album-close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        background: transparent;
-        border: none;
-        font-size: 28px;
-        color: white;
-        cursor: pointer;
-        z-index: 10000;
-      }
+    .popup-album-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      z-index: 10000;
+    }
 
-      .popup-album-close:hover {
-        color: #fe38b6;
-      }
-
-      /* .music-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-
-      .music-row span {
-        color: white;
-        font-size: 14px;
-      } */
-    </style>
-  </head>
+    .popup-album-close:hover {
+      color: #fe38b6;
+    }
+  </style>
+</head>
 
   <body>
     <header>
@@ -133,667 +117,532 @@
       </ul>
     </nav>
 
-    <main id="main">
-      <section class="music-list">
-        <h1>Músicas</h1>
+  <main id="main">
+    <section class="music-list">
+      <h1>Músicas</h1>
 
-        <div class="music-row">
-          <div
-            class="cover-container"
-            data-audio="assets/musicasmp3/lugaraosol.mp3"
-            data-title="Lugar ao Sol"
-            data-artist="Charlie Brown Jr"
-            data-style="Rock"
-            data-cover="assets/musicas-albuns/lugar-ao-sol_100_charliebrownjr.png"
-          >
-            <img
-              src="assets/musicas-albuns/lugar-ao-sol_100_charliebrownjr.png"
-              alt="Capa do álbum"
-            />
-            <div class="play"><i class="fa-solid fa-play"></i></div>
+      <div class="music-row">
+        <div class="cover-container" data-audio="assets/musicasmp3/lugaraosol.mp3" data-title="Lugar ao Sol"
+          data-artist="Charlie Brown Jr" data-style="Rock"
+          data-cover="assets/musicas-albuns/lugar-ao-sol_100_charliebrownjr.png">
+          <img src="assets/musicas-albuns/lugar-ao-sol_100_charliebrownjr.png" alt="Capa do álbum" />
+          <div class="play"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <span class="title">Lugar ao Sol</span>
+        <span class="artist">Charlie Brown Jr</span>
+        <span class="genre">Rock</span>
+        <span class="album">100% Charlie Brown Jr</span>
+        <span class="favorite"><i class="far fa-heart"></i></span>
+      </div>
+
+      <div class="music-row">
+        <div class="cover-container" data-audio="assets/musicasmp3/supera.mp3" data-title="Supera"
+          data-artist="Péricles" data-style="Pagode"
+          data-cover="assets/musicas-albuns/supera-pericles_pagode-do-pericao.png">
+          <img src="assets/musicas-albuns/supera-pericles_pagode-do-pericao.png" alt="Capa do álbum" />
+          <div class="play"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <span class="title">Supera</span>
+        <span class="artist">Péricles</span>
+        <span class="genre">Pagode</span>
+        <span class="album">Ao Vivo</span>
+        <span class="favorite"><i class="far fa-heart"></i></span>
+      </div>
+
+      <div class="music-row">
+        <div class="cover-container" data-audio="assets/musicasmp3/hotogo.mp3" data-title="Hot to Go"
+          data-artist="Chappel Roan" data-style="Pop" data-cover="assets/musicas-albuns/hot-to-go_chappel-roan.jpeg">
+          <img src="assets/musicas-albuns/hot-to-go_chappel-roan.jpeg" alt="Hot To Go" />
+          <div class="play"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <span class="title">Hot to Go</span>
+        <span class="artist">Chappel Roan</span>
+        <span class="genre">Pop</span>
+        <span class="album">The Rise and Fall of a Midwest Princess</span>
+        <span class="favorite"><i class="far fa-heart"></i></span>
+      </div>
+
+      <div class="music-row">
+        <div class="cover-container" data-audio="assets/musicasmp3/sublimerenuncia.mp3" data-title="Sublime Renúncia"
+          data-artist="Leandro e Leonardo" data-style="Sertanejo"
+          data-cover="assets/musicas-albuns/sublimerenuncia.png">
+          <img src="assets/musicas-albuns/sublimerenuncia.png" alt="Capa do álbum" />
+          <div class="play"><i class="fa-solid fa-play"></i></div>
+        </div>
+        <span class="title">Sublime Renúncia</span>
+        <span class="artist">Leandro e Leonardo</span>
+        <span class="genre">Sertanejo</span>
+        <span class="album">Explosão de Desejos</span>
+        <span class="favorite"><i class="far fa-heart"></i></span>
+      </div>
+    </section>
+
+    <section class="recents-albums">
+      <h1>Álbuns de Artistas Favoritos</h1>
+      <div class="album-grid">
+        <div class="album-card" data-popup="popup-illusion1" data-audio="assets/musicasmp3/dontcry.mp3">
+          <div class="album-cover">
+            <img src="assets/musicas-albuns/dont-cry_gnroses_use-your-illusionI.png" alt="Use Your Illusion I" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
-          <span class="title">Lugar ao Sol</span>
-          <span class="artist">Charlie Brown Jr</span>
-          <span class="genre">Rock</span>
-          <span class="album">100% Charlie Brown Jr</span>
-          <span class="favorite"><i class="far fa-heart"></i></span>
+          <h3>Use Your Illusion I</h3>
+          <p>Guns N' Roses</p>
         </div>
 
-        <div class="music-row">
-          <div
-            class="cover-container"
-            data-audio="assets/musicasmp3/supera.mp3"
-            data-title="Supera"
-            data-artist="Péricles"
-            data-style="Pagode"
-            data-cover="assets/musicas-albuns/supera-pericles_pagode-do-pericao.png"
-          >
-            <img
-              src="assets/musicas-albuns/supera-pericles_pagode-do-pericao.png"
-              alt="Capa do álbum"
-            />
-            <div class="play"><i class="fa-solid fa-play"></i></div>
+        <div class="album-card" data-popup="popup-starboy" data-audio="assets/musicasmp3/dieforyou.mp3">
+          <div class="album-cover">
+            <img src="assets/musicas-albuns/starboy-theweeknd.png" alt="Starboy" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
-          <span class="title">Supera</span>
-          <span class="artist">Péricles</span>
-          <span class="genre">Pagode</span>
-          <span class="album">Ao Vivo</span>
-          <span class="favorite"><i class="far fa-heart"></i></span>
+          <h3>Starboy</h3>
+          <p>The Weeknd</p>
         </div>
 
-        <div class="music-row">
-          <div
-            class="cover-container"
-            data-audio="assets/musicasmp3/hotogo.mp3"
-            data-title="Hot to Go"
-            data-artist="Chappel Roan"
-            data-style="Pop"
-            data-cover="assets/musicas-albuns/hot-to-go_chappel-roan.jpeg"
-          >
-            <img
-              src="assets/musicas-albuns/hot-to-go_chappel-roan.jpeg"
-              alt="Hot To Go"
-            />
-            <div class="play"><i class="fa-solid fa-play"></i></div>
+
+        <div class="album-card" data-popup="popup-nomoretears" data-audio="assets/musicasmp3/nomoretears.mp3">
+          <div class="album-cover">
+            <img src="assets/musicas-albuns/ozzyosbourne-nomoretears.png" alt="No More Tears" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
-          <span class="title">Hot to Go</span>
-          <span class="artist">Chappel Roan</span>
+          <h3>No More Tears</h3>
+          <p>Ozzy Osbourne</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="selected">
+      <h1>Selecionado pra você</h1>
+      <div class="album-grid">
+        <div class="album-card" data-popup="popup-osmlkeliso" data-audio="assets/musicasmp3/osmlkeliso.mp3">
+          <div class="album-cover">
+            <img src="assets/musicas-albuns/osmlkeliso-mcrodolfinho-osmlkeliso.png" alt="Os muleke é liso" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Os muleke é liso</h3>
+          <p>MC Rodolfinho</p>
+        </div>
+
+        <div class="album-card" data-popup="popup-rapecompromisso" data-audio="assets/musicasmp3/umbomlugar.mp3">
+          <div class="album-cover">
+            <img src="assets/musicas-albuns/umbomlugar-sabotage-rapecompromiso.png" alt="Rap é compromisso" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Rap é compromisso</h3>
+          <p>Sabotage</p>
+        </div>
+
+        <div class="album-card" data-popup="popup-ilhadamagia">
+          <div class="album-cover">
+            <img src="assets/musicas-albuns/teusegredo-exaltasamba.png" alt="Ao Vivo na Ilha da Magia" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Ao Vivo na Ilha da Magia</h3>
+          <p>Exaltasamba</p>
+        </div>
+    </section>
+
+    <section class="recent-music">
+      <h1>Lançadas Recentemente</h1>
+      <div class="music-grid">
+        <div class="music-row">
+          <div class="cover-container" data-audio="assets/musicasmp3/505.mp3" data-title="505"
+            data-artist="Arctic Monkeys" data-style="Pop"
+            data-cover="assets/musicas-albuns/505-articmonkeys-favouriteworstnightmare.png">
+            <img src="assets/musicas-albuns/505-articmonkeys-favouriteworstnightmare.png" alt="505" />
+            <div class="play"><i class="fas fa-play"></i></div>
+          </div>
+          <span class="title">505</span>
+          <span class="artist">Arctic Monkeys</span>
           <span class="genre">Pop</span>
-          <span class="album">The Rise and Fall of a Midwest Princess</span>
+          <span class="album">The Favorite Worst Nightmare</span>
           <span class="favorite"><i class="far fa-heart"></i></span>
         </div>
 
         <div class="music-row">
-          <div
-            class="cover-container"
-            data-audio="assets/musicasmp3/sublimerenuncia.mp3"
-            data-title="Sublime Renúncia"
-            data-artist="Leandro e Leonardo"
-            data-style="Sertanejo"
-            data-cover="assets/musicas-albuns/sublimerenuncia.png"
-          >
-            <img
-              src="assets/musicas-albuns/sublimerenuncia.png"
-              alt="Capa do álbum"
-            />
-            <div class="play"><i class="fa-solid fa-play"></i></div>
+          <div class="cover-container" data-audio="assets/musicasmp3/dapontepraca.mp3" data-title="Da Ponte pra Cá"
+            data-artist="Racionais MC's" data-style="Rap"
+            data-cover="assets/musicas-albuns/dapontepraca-racionais-nadacomoumdia.png">
+            <img src="assets/musicas-albuns/dapontepraca-racionais-nadacomoumdia.png" alt="Da Ponte pra Cá" />
+            <div class="play"><i class="fas fa-play"></i></div>
           </div>
-          <span class="title">Sublime Renúncia</span>
-          <span class="artist">Leandro e Leonardo</span>
-          <span class="genre">Sertanejo</span>
-          <span class="album">Explosão de Desejos</span>
+          <span class="title">Da Ponte pra Cá</span>
+          <span class="artist">Racionais MC's</span>
+          <span class="genre">Rap</span>
+          <span class="album">Nada como um dia após o outro dia</span>
           <span class="favorite"><i class="far fa-heart"></i></span>
         </div>
-      </section>
 
-      <section class="recents-albums">
-        <h1>Álbuns de Artistas Favoritos</h1>
-        <div class="album-grid">
-          <div
-            class="album-card"
-            data-popup="popup-illusion1"
-            data-audio="assets/musicasmp3/dontcry.mp3"
-          >
-            <div class="album-cover">
-              <img
-                src="assets/musicas-albuns/dont-cry_gnroses_use-your-illusionI.png"
-                alt="Use Your Illusion I"
-              />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>Use Your Illusion I</h3>
-            <p>Guns N' Roses</p>
+        <div class="music-row">
+          <div class="cover-container" data-audio="assets/musicasmp3/teusegredo.mp3" data-title="Teu Segredo"
+            data-artist="Exaltasamba" data-style="Pagode" data-cover="assets/musicas-albuns/teusegredo-exaltasamba.png">
+            <img src="assets/musicas-albuns/teusegredo-exaltasamba.png" alt="Teu Segredo" />
+            <div class="play"><i class="fas fa-play"></i></div>
           </div>
-
-          <div class="album-card"
-              data-popup="popup-starboy"
-              data-audio="assets/musicasmp3/dieforyou.mp3">
-            <div class="album-cover">
-              <img src="assets/musicas-albuns/starboy-theweeknd.png" alt="Starboy" />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>Starboy</h3>
-            <p>The Weeknd</p>
-          </div>
-
-
-          <div class="album-card"
-              data-popup="popup-nomoretears"
-              data-audio="assets/musicasmp3/nomoretears.mp3">
-            <div class="album-cover">
-              <img src="assets/musicas-albuns/ozzyosbourne-nomoretears.png" alt="No More Tears" />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>No More Tears</h3>
-            <p>Ozzy Osbourne</p>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="selected">
-        <h1>Selecionado pra você</h1>
-        <div class="album-grid">
-          <div class="album-card" data-popup="popup-osmlkeliso" data-audio="assets/musicasmp3/osmlkeliso.mp3">
-            <div class="album-cover">
-              <img
-                src="assets/musicas-albuns/osmlkeliso-mcrodolfinho-osmlkeliso.png"
-                alt="Os muleke é liso"
-              />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>Os muleke é liso</h3>
-            <p>MC Rodolfinho</p>
-          </div>
-
-          <div class="album-card" data-popup="popup-rapecompromisso" data-audio="assets/musicasmp3/umbomlugar.mp3">
-            <div class="album-cover">
-              <img
-                src="assets/musicas-albuns/umbomlugar-sabotage-rapecompromiso.png"
-                alt="Rap é compromisso"
-              />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>Rap é compromisso</h3>
-            <p>Sabotage</p>
-          </div>
-
-          <div class="album-card" data-popup="popup-ilhadamagia">
-            <div class="album-cover">
-              <img 
-              src="assets/musicas-albuns/teusegredo-exaltasamba.png" 
-              alt="Ao Vivo na Ilha da Magia" 
-              />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>Ao Vivo na Ilha da Magia</h3>
-            <p>Exaltasamba</p>
-          </div>
-      </section>
-
-      <section class="recent-music">
-        <h1>Lançadas Recentemente</h1>
-        <div class="music-grid">
-          <div class="music-row">
-            <div
-              class="cover-container"
-              data-audio="assets/musicasmp3/505.mp3"
-              data-title="505"
-              data-artist="Arctic Monkeys"
-              data-style="Pop"
-              data-cover="assets/musicas-albuns/505-articmonkeys-favouriteworstnightmare.png"
-            >
-              <img
-                src="assets/musicas-albuns/505-articmonkeys-favouriteworstnightmare.png"
-                alt="505"
-              />
-              <div class="play"><i class="fas fa-play"></i></div>
-            </div>
-            <span class="title">505</span>
-            <span class="artist">Arctic Monkeys</span>
-            <span class="genre">Pop</span>
-            <span class="album">The Favorite Worst Nightmare</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-
-          <div class="music-row">
-            <div
-              class="cover-container"
-              data-audio="assets/musicasmp3/dapontepraca.mp3"
-              data-title="Da Ponte pra Cá"
-              data-artist="Racionais MC's"
-              data-style="Rap"
-              data-cover="assets/musicas-albuns/dapontepraca-racionais-nadacomoumdia.png"
-            >
-              <img
-                src="assets/musicas-albuns/dapontepraca-racionais-nadacomoumdia.png"
-                alt="Da Ponte pra Cá"
-              />
-              <div class="play"><i class="fas fa-play"></i></div>
-            </div>
-            <span class="title">Da Ponte pra Cá</span>
-            <span class="artist">Racionais MC's</span>
-            <span class="genre">Rap</span>
-            <span class="album">Nada como um dia após o outro dia</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-
-          <div class="music-row">
-            <div
-              class="cover-container"
-              data-audio="assets/musicasmp3/teusegredo.mp3"
-              data-title="Teu Segredo"
-              data-artist="Exaltasamba"
-              data-style="Pagode"
-              data-cover="assets/musicas-albuns/teusegredo-exaltasamba.png"
-            >
-              <img
-                src="assets/musicas-albuns/teusegredo-exaltasamba.png"
-                alt="Teu Segredo"
-              />
-              <div class="play"><i class="fas fa-play"></i></div>
-            </div>
-            <span class="title">Teu segredo</span>
-            <span class="artist">Exaltasamba</span>
-            <span class="genre">Pagode</span>
-            <span class="album">Ao Vivo Na Ilha Da Magia</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-        </div>
-      </section>
-
-      <section class="top-playlists">
-        <h1>Top Playlists</h1>
-        <div class="playlist-grid">
-          <div class="playlist-card">
-            <div class="playlist-cover">
-              <img
-                src="assets/musicas-albuns/playlists/brasilnere.png"
-                alt="brasilidades"
-              />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>Brasilidades</h3>
-            <p>Por: João Nere</p>
-          </div>
-
-          <div class="playlist-card">
-            <div class="playlist-cover">
-              <img
-                src="assets/musicas-albuns/playlists/orricoking.png"
-                alt="orricoking"
-              />
-              <div class="play-overlay"><i class="fas fa-play"></i></div>
-            </div>
-            <h3>Rock</h3>
-            <p>Por: Ricardo Orrico</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <div id="player-bar" class="ativo">
-      <div class="player-left">
-        <img
-          id="track-cover"
-          src="assets/musicas-albuns/imagem.png"
-          alt="Capa"
-        />
-        <div class="track-info">
-          <span id="track-title">Nome da Música</span>
-          <span id="track-artist">Artista • Estilo</span>
+          <span class="title">Teu segredo</span>
+          <span class="artist">Exaltasamba</span>
+          <span class="genre">Pagode</span>
+          <span class="album">Ao Vivo Na Ilha Da Magia</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
         </div>
       </div>
+    </section>
 
-      <div class="player-center">
-        <div class="controls">
-          <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
-          <button id="play-pause-btn"><i class="fas fa-play"></i></button>
-          <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+    <section class="top-playlists">
+      <h1>Top Playlists</h1>
+      <div class="playlist-grid">
+        <div class="playlist-card">
+          <div class="playlist-cover">
+            <img src="assets/musicas-albuns/playlists/brasilnere.png" alt="brasilidades" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Brasilidades</h3>
+          <p>Por: João Nere</p>
         </div>
-        <input type="range" id="progress-bar" value="0" />
-        <div class="time-info">
-          <span id="current-time">0:00</span>
-          <span id="total-time">0:00</span>
+
+        <div class="playlist-card">
+          <div class="playlist-cover">
+            <img src="assets/musicas-albuns/playlists/orricoking.png" alt="orricoking" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+          </div>
+          <h3>Rock</h3>
+          <p>Por: Ricardo Orrico</p>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="player-right">
-        <div class="volume-control">
-          <button id="volume-down"><i class="fas fa-volume-down"></i></button>
-          <input
-            type="range"
-            id="volume-slider"
-            min="0"
-            max="1"
-            step="0.01"
-            value="1"
-          />
-          <button id="volume-up"><i class="fas fa-volume-up"></i></button>
-        </div>
-
-        <button><i class="fas fa-heart"></i></button>
-        <button><i class="fas fa-download"></i></button>
+  <div id="player-bar" class="ativo">
+    <div class="player-left">
+      <img id="track-cover" src="assets/musicas-albuns/imagem.png" alt="Capa" />
+      <div class="track-info">
+        <span id="track-title">Nome da Música</span>
+        <span id="track-artist">Artista • Estilo</span>
       </div>
-      <audio id="audio-player" preload="metadata"></audio>
     </div>
 
-    <!-- GUNS N ROSES - USE YOUR ILLUSION -->
-    <div id="popup-illusion1" class="popup-album hidden">
-      <div class="popup-album-content">
-        <button class="popup-album-close">X</button>
-        <div class="popup-album-header">
-          <img
-            src="assets/musicas-albuns/dont-cry_gnroses_use-your-illusionI.png"
-            alt="Capa do álbum"
-          />
-          <button class="popup-album-play"><i class="fas fa-play"></i></button>
-        </div>
-        <h3>Use Your Illusion I</h3>
-        <p>Guns N' Roses</p>
-
-        <div class="popup-album-tracks">
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Dust N' Bones</span>
-            <span class="artist">Guns N' Roses</span>
-            <span class="genre">Rock</span>
-            <span class="album">Use Your Illusion I</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Live and Let Die</span>
-            <span class="artist">Guns N' Roses</span>
-            <span class="genre">Rock</span>
-            <span class="album">Use Your Illusion I</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Don't Cry</span>
-            <span class="artist">Guns N' Roses</span>
-            <span class="genre">Rock</span>
-            <span class="album">Use Your Illusion I</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Perfect Crime</span>
-            <span class="artist">Guns N' Roses</span>
-            <span class="genre">Rock</span>
-            <span class="album">Use Your Illusion I</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">November Rain</span>
-            <span class="artist">Guns N' Roses</span>
-            <span class="genre">Rock</span>
-            <span class="album">Use Your Illusion I</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">The Garden</span>
-            <span class="artist">Guns N' Roses</span>
-            <span class="genre">Rock</span>
-            <span class="album">Use Your Illusion I</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-        </div>
+    <div class="player-center">
+      <div class="controls">
+        <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+        <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+        <button id="next-btn"><i class="fas fa-step-forward"></i></button>
       </div>
-      <audio preload="metadata"></audio>
+      <input type="range" id="progress-bar" value="0" />
+      <div class="time-info">
+        <span id="current-time">0:00</span>
+        <span id="total-time">0:00</span>
+      </div>
     </div>
 
-    <!-- THE WEEKND - STARBOY -->
-    <div id="popup-starboy" class="popup-album hidden">
-      <div class="popup-album-content">
-        <button class="popup-album-close">X</button>
-        <div class="popup-album-header">
-          <img
-            src="assets/musicas-albuns/starboy-theweeknd.png"
-            alt="Capa do álbum"
-          />
-          <button class="popup-album-play"><i class="fas fa-play"></i></button>
-        </div>
-        <h3>Starboy</h3>
-        <p>The Weeknd</p>
+    <div class="player-right">
+      <div class="volume-control">
+        <button id="volume-down"><i class="fas fa-volume-down"></i></button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
+        <button id="volume-up"><i class="fas fa-volume-up"></i></button>
+      </div>
 
-        <div class="popup-album-tracks">
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Starboy</span
-            ><span class="artist">The Weeknd</span><span class="genre">R&B</span
-            ><span class="album">Starboy</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Party Monster</span
-            ><span class="artist">The Weeknd</span><span class="genre">R&B</span
-            ><span class="album">Starboy</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Die For You</span
-            ><span class="artist">The Weeknd</span><span class="genre">R&B</span
-            ><span class="album">Starboy</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
+      <button><i class="fas fa-heart"></i></button>
+      <button><i class="fas fa-download"></i></button>
+    </div>
+    <audio id="audio-player" preload="metadata"></audio>
+  </div>
+
+  <!-- GUNS N ROSES - USE YOUR ILLUSION -->
+  <div id="popup-illusion1" class="popup-album hidden">
+    <div class="popup-album-content">
+      <button class="popup-album-close">X</button>
+      <div class="popup-album-header">
+        <img src="assets/musicas-albuns/dont-cry_gnroses_use-your-illusionI.png" alt="Capa do álbum" />
+        <button class="popup-album-play"><i class="fas fa-play"></i></button>
+      </div>
+      <h3>Use Your Illusion I</h3>
+      <p>Guns N' Roses</p>
+
+      <div class="popup-album-tracks">
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Dust N' Bones</span>
+          <span class="artist">Guns N' Roses</span>
+          <span class="genre">Rock</span>
+          <span class="album">Use Your Illusion I</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Live and Let Die</span>
+          <span class="artist">Guns N' Roses</span>
+          <span class="genre">Rock</span>
+          <span class="album">Use Your Illusion I</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Don't Cry</span>
+          <span class="artist">Guns N' Roses</span>
+          <span class="genre">Rock</span>
+          <span class="album">Use Your Illusion I</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Perfect Crime</span>
+          <span class="artist">Guns N' Roses</span>
+          <span class="genre">Rock</span>
+          <span class="album">Use Your Illusion I</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">November Rain</span>
+          <span class="artist">Guns N' Roses</span>
+          <span class="genre">Rock</span>
+          <span class="album">Use Your Illusion I</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">The Garden</span>
+          <span class="artist">Guns N' Roses</span>
+          <span class="genre">Rock</span>
+          <span class="album">Use Your Illusion I</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
         </div>
       </div>
-      <audio preload="metadata" src="assets/musicasmp3/dieforyou.mp3"></audio>
     </div>
+    <audio preload="metadata"></audio>
+  </div>
 
-    <!-- OZZY OSBOURNE - NO MORE TEARS -->
-    <div id="popup-nomoretears" class="popup-album hidden">
-      <div class="popup-album-content">
-        <button class="popup-album-close">X</button>
-        <div class="popup-album-header">
-          <img
-            src="assets/musicas-albuns/ozzyosbourne-nomoretears.png"
-            alt="Capa do álbum"
-          />
-          <button class="popup-album-play"><i class="fas fa-play"></i></button>
+  <!-- THE WEEKND - STARBOY -->
+  <div id="popup-starboy" class="popup-album hidden">
+    <div class="popup-album-content">
+      <button class="popup-album-close">X</button>
+      <div class="popup-album-header">
+        <img src="assets/musicas-albuns/starboy-theweeknd.png" alt="Capa do álbum" />
+        <button class="popup-album-play"><i class="fas fa-play"></i></button>
+      </div>
+      <h3>Starboy</h3>
+      <p>The Weeknd</p>
+
+      <div class="popup-album-tracks">
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Starboy</span><span class="artist">The Weeknd</span><span class="genre">R&B</span><span
+            class="album">Starboy</span><span class="favorite"><i class="far fa-heart"></i></span>
         </div>
-        <h3>No More Tears</h3>
-        <p>Ozzy Osbourne</p>
-        <div class="popup-album-tracks">
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Mr. Tinkertrain</span
-            ><span class="artist">Ozzy Osbourne</span
-            ><span class="genre">Metal</span
-            ><span class="album">No More Tears</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Mama, I'm Coming Home</span
-            ><span class="artist">Ozzy Osbourne</span
-            ><span class="genre">Metal</span
-            ><span class="album">No More Tears</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">No More Tears</span
-            ><span class="artist">Ozzy Osbourne</span
-            ><span class="genre">Metal</span
-            ><span class="album">No More Tears</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Party Monster</span><span class="artist">The Weeknd</span><span
+            class="genre">R&B</span><span class="album">Starboy</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Die For You</span><span class="artist">The Weeknd</span><span
+            class="genre">R&B</span><span class="album">Starboy</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
         </div>
       </div>
-      <audio preload="metadata" src="assets/musicasmp3/nomoretears.mp3"></audio>
     </div>
+    <audio preload="metadata" src="assets/musicasmp3/dieforyou.mp3"></audio>
+  </div>
 
-    <!-- MC RODOLFINHO - OS MULEKE É LISO -->
-    <div id="popup-osmlkeliso" class="popup-album hidden">
-      <div class="popup-album-content">
-        <button class="popup-album-close">X</button>
-        <div class="popup-album-header">
-          <img
-            src="assets/musicas-albuns/osmlkeliso-mcrodolfinho-osmlkeliso.png"
-            alt="Capa do álbum"
-          />
-          <button class="popup-album-play"><i class="fas fa-play"></i></button>
+  <!-- OZZY OSBOURNE - NO MORE TEARS -->
+  <div id="popup-nomoretears" class="popup-album hidden">
+    <div class="popup-album-content">
+      <button class="popup-album-close">X</button>
+      <div class="popup-album-header">
+        <img src="assets/musicas-albuns/ozzyosbourne-nomoretears.png" alt="Capa do álbum" />
+        <button class="popup-album-play"><i class="fas fa-play"></i></button>
+      </div>
+      <h3>No More Tears</h3>
+      <p>Ozzy Osbourne</p>
+      <div class="popup-album-tracks">
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Mr. Tinkertrain</span><span class="artist">Ozzy Osbourne</span><span
+            class="genre">Metal</span><span class="album">No More Tears</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
         </div>
-        <h3>Os muleke é liso</h3>
-        <p>MC Rodolfinho</p>
-        <div class="popup-album-tracks">
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Os muleke é liso</span
-            ><span class="artist">MC Rodolfinho</span
-            ><span class="genre">Funk</span
-            ><span class="album">Os muleke é liso</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Vida Louca</span
-            ><span class="artist">MC Rodolfinho</span
-            ><span class="genre">Funk</span
-            ><span class="album">Os muleke é liso</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Fé em Deus</span
-            ><span class="artist">MC Rodolfinho</span
-            ><span class="genre">Funk</span
-            ><span class="album">Os muleke é liso</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Mama, I'm Coming Home</span><span class="artist">Ozzy Osbourne</span><span
+            class="genre">Metal</span><span class="album">No More Tears</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">No More Tears</span><span class="artist">Ozzy Osbourne</span><span
+            class="genre">Metal</span><span class="album">No More Tears</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
         </div>
       </div>
-      <audio preload="metadata" src="assets/musicasmp3/osmlkeliso.mp3"></audio>
     </div>
+    <audio preload="metadata" src="assets/musicasmp3/nomoretears.mp3"></audio>
+  </div>
 
-    <!-- SABOTAGE - RAP É COMPROMISSO -->
-    <div id="popup-rapecompromisso" class="popup-album hidden">
-      <div class="popup-album-content">
-        <button class="popup-album-close">X</button>
-        <div class="popup-album-header">
-          <img
-            src="assets/musicas-albuns/umbomlugar-sabotage-rapecompromiso.png"
-            alt="Capa do álbum"
-          />
-          <button class="popup-album-play"><i class="fas fa-play"></i></button>
+  <!-- MC RODOLFINHO - OS MULEKE É LISO -->
+  <div id="popup-osmlkeliso" class="popup-album hidden">
+    <div class="popup-album-content">
+      <button class="popup-album-close">X</button>
+      <div class="popup-album-header">
+        <img src="assets/musicas-albuns/osmlkeliso-mcrodolfinho-osmlkeliso.png" alt="Capa do álbum" />
+        <button class="popup-album-play"><i class="fas fa-play"></i></button>
+      </div>
+      <h3>Os muleke é liso</h3>
+      <p>MC Rodolfinho</p>
+      <div class="popup-album-tracks">
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Os muleke é liso</span><span class="artist">MC Rodolfinho</span><span
+            class="genre">Funk</span><span class="album">Os muleke é liso</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
         </div>
-        <h3>Rap é compromisso</h3>
-        <p>Sabotage</p>
-
-        <div class="popup-album-tracks">
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Um Bom Lugar</span
-            ><span class="artist">Sabotage</span><span class="genre">Rap</span
-            ><span class="album">Rap é compromisso</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Respeito é Pra Quem Tem</span
-            ><span class="artist">Sabotage</span><span class="genre">Rap</span
-            ><span class="album">Rap é compromisso</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Rap é Compromisso</span
-            ><span class="artist">Sabotage</span><span class="genre">Rap</span
-            ><span class="album">Rap é compromisso</span
-            ><span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Vida Louca</span><span class="artist">MC Rodolfinho</span><span
+            class="genre">Funk</span><span class="album">Os muleke é liso</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Fé em Deus</span><span class="artist">MC Rodolfinho</span><span
+            class="genre">Funk</span><span class="album">Os muleke é liso</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
         </div>
       </div>
-      <audio preload="metadata" src="assets/musicasmp3/umbomlugar.mp3"></audio>
     </div>
-    <!-- EXALTASAMBA - AO VIVO NA ILHA DA MAGIA -->
-    <div id="popup-ilhadamagia" class="popup-album hidden">
-      <div class="popup-album-content">
-        <button class="popup-album-close">X</button>
-        <div class="popup-album-header">
-          <img
-            src="assets/musicas-albuns/teusegredo-exaltasamba.png"
-            alt="Capa do álbum"
-          />
-          <button class="popup-album-play"><i class="fas fa-play"></i></button>
-        </div>
-        <h3>Ao Vivo na Ilha da Magia</h3>
-        <p>Exaltasamba</p>
+    <audio preload="metadata" src="assets/musicasmp3/osmlkeliso.mp3"></audio>
+  </div>
 
-        <div class="popup-album-tracks">
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Tá Vendo Aquela Lua</span>
-            <span class="artist">Exaltasamba</span>
-            <span class="genre">Pagode</span>
-            <span class="album">Ao Vivo na Ilha da Magia</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Teu Segredo</span>
-            <span class="artist">Exaltasamba</span>
-            <span class="genre">Pagode</span>
-            <span class="album">Ao Vivo na Ilha da Magia</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
-          <div class="music-row">
-            <div class="cover-container"></div>
-            <span class="title">Jogo de Sedução</span>
-            <span class="artist">Exaltasamba</span>
-            <span class="genre">Pagode</span>
-            <span class="album">Ao Vivo na Ilha da Magia</span>
-            <span class="favorite"><i class="far fa-heart"></i></span>
-          </div>
+  <!-- SABOTAGE - RAP É COMPROMISSO -->
+  <div id="popup-rapecompromisso" class="popup-album hidden">
+    <div class="popup-album-content">
+      <button class="popup-album-close">X</button>
+      <div class="popup-album-header">
+        <img src="assets/musicas-albuns/umbomlugar-sabotage-rapecompromiso.png" alt="Capa do álbum" />
+        <button class="popup-album-play"><i class="fas fa-play"></i></button>
+      </div>
+      <h3>Rap é compromisso</h3>
+      <p>Sabotage</p>
+
+      <div class="popup-album-tracks">
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Um Bom Lugar</span><span class="artist">Sabotage</span><span class="genre">Rap</span><span
+            class="album">Rap é compromisso</span><span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Respeito é Pra Quem Tem</span><span class="artist">Sabotage</span><span
+            class="genre">Rap</span><span class="album">Rap é compromisso</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Rap é Compromisso</span><span class="artist">Sabotage</span><span
+            class="genre">Rap</span><span class="album">Rap é compromisso</span><span class="favorite"><i
+              class="far fa-heart"></i></span>
         </div>
       </div>
-      <audio preload="metadata" src="assets/musicasmp3/teusegredo.mp3"></audio>
     </div>
+    <audio preload="metadata" src="assets/musicasmp3/umbomlugar.mp3"></audio>
+  </div>
+  <!-- EXALTASAMBA - AO VIVO NA ILHA DA MAGIA -->
+  <div id="popup-ilhadamagia" class="popup-album hidden">
+    <div class="popup-album-content">
+      <button class="popup-album-close">X</button>
+      <div class="popup-album-header">
+        <img src="assets/musicas-albuns/teusegredo-exaltasamba.png" alt="Capa do álbum" />
+        <button class="popup-album-play"><i class="fas fa-play"></i></button>
+      </div>
+      <h3>Ao Vivo na Ilha da Magia</h3>
+      <p>Exaltasamba</p>
 
-    <footer>&copy; 2025 Sua Plataforma Musical</footer>
+      <div class="popup-album-tracks">
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Tá Vendo Aquela Lua</span>
+          <span class="artist">Exaltasamba</span>
+          <span class="genre">Pagode</span>
+          <span class="album">Ao Vivo na Ilha da Magia</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Teu Segredo</span>
+          <span class="artist">Exaltasamba</span>
+          <span class="genre">Pagode</span>
+          <span class="album">Ao Vivo na Ilha da Magia</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+        <div class="music-row">
+          <div class="cover-container"></div>
+          <span class="title">Jogo de Sedução</span>
+          <span class="artist">Exaltasamba</span>
+          <span class="genre">Pagode</span>
+          <span class="album">Ao Vivo na Ilha da Magia</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
+      </div>
+    </div>
+    <audio preload="metadata" src="assets/musicasmp3/teusegredo.mp3"></audio>
+  </div>
 
-    <script src="scripts/popupsair.js"></script>
-    <script src="scripts/home.js"></script>
-    <script>
-  document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".album-card .play-overlay").forEach((playIcon) => {
-    playIcon.addEventListener("click", () => {
-      const card = playIcon.closest(".album-card");
-      const popupId = card.dataset.popup;
-      const audioSrc = card.dataset.audio;
-      const popup = document.getElementById(popupId);
-      if (!popup || !audioSrc) return;
+  <footer>&copy; 2025 Sua Plataforma Musical</footer>
 
-      const audio = popup.querySelector("audio");
-      const playBtn = popup.querySelector(".popup-album-play");
-      const closeBtn = popup.querySelector(".popup-album-close");
+  <script src="scripts/popupsair.js"></script>
+  <script src="scripts/home.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".album-card .play-overlay").forEach((playIcon) => {
+        playIcon.addEventListener("click", () => {
+          const card = playIcon.closest(".album-card");
+          const popupId = card.dataset.popup;
+          const audioSrc = card.dataset.audio;
+          const popup = document.getElementById(popupId);
+          if (!popup || !audioSrc) return;
 
-      // Atualiza o áudio
-      audio.pause();
-      audio.src = audioSrc;
-      audio.load();
+          const audio = popup.querySelector("audio");
+          const playBtn = popup.querySelector(".popup-album-play");
+          const closeBtn = popup.querySelector(".popup-album-close");
 
-      // Limpa eventos anteriores
-      playBtn.onclick = null;
-      closeBtn.onclick = null;
-
-      // Abre o popup
-      popup.classList.remove("hidden");
-      playBtn.innerHTML = '<i class="fas fa-play"></i>';
-
-      // Botão de play
-      playBtn.addEventListener("click", () => {
-        if (audio.paused) {
-          audio.play().then(() => {
-            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-          }).catch(err => {
-            console.error("Erro ao tocar áudio:", err);
-          });
-        } else {
+          // Atualiza o áudio
           audio.pause();
-          playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        }
-      });
+          audio.src = audioSrc;
+          audio.load();
 
-      // Botão de fechar
-      closeBtn.addEventListener("click", () => {
-        popup.classList.add("hidden");
-        audio.pause();
-        audio.currentTime = 0;
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+          // Limpa eventos anteriores
+          playBtn.onclick = null;
+          closeBtn.onclick = null;
+
+          // Abre o popup
+          popup.classList.remove("hidden");
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+
+          // Botão de play
+          playBtn.addEventListener("click", () => {
+            if (audio.paused) {
+              audio.play().then(() => {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+              }).catch(err => {
+                console.error("Erro ao tocar áudio:", err);
+              });
+            } else {
+              audio.pause();
+              playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+          });
+
+          // Botão de fechar
+          closeBtn.addEventListener("click", () => {
+            popup.classList.add("hidden");
+            audio.pause();
+            audio.currentTime = 0;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+          });
+        });
       });
     });
-  });
-});
-
-
-    </script>
-  </body>
+  </script>
+</body>
 </html>
