@@ -63,9 +63,9 @@ function exibirDadosPessoais() {
     document.getElementById("generoInput").style.display = modoInput;
     document.getElementById("biografiaInput").style.display = modoInput;
 
-    this.textContent = editando 
+    this.innerHTML = editando 
     ? '<i class="fas fa-save"></i> Salvar Informações'
-    : '<i class="fas fa-pen"></i> Editar Informações';;
+    : '<i class="fas fa-pen"></i> Editar Informações';
 
     if (!editando) {
         user.nomeReal = document.getElementById("nomeRealInput").value;
