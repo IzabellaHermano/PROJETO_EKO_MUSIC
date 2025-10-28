@@ -49,10 +49,49 @@
         </li>
       </ul>
     </nav>
-
-
-
     <main></main>
+
+     <div id="player-bar" class="hidden">
+    <div class="player-left">
+      <img id="track-cover" src="assets/musicas-albuns/imagem.png" alt="Capa" />
+      <div class="track-info">
+        <span id="track-title">Nome da Música</span>
+        <span id="track-artist">Artista • Estilo</span>
+      </div>
+    </div>
+
+    <div class="player-center">
+      <div class="controls">
+        <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+        <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+        <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+      </div>
+      <input type="range" id="progress-bar" value="0" />
+      <div class="time-info">
+        <span id="current-time">0:00</span>
+        <span id="total-time">0:00</span>
+      </div>
+    </div>
+
+    <div class="player-right">
+      <div class="volume-control">
+        <button id="volume-down"><i class="fas fa-volume-down"></i></button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
+        <button id="volume-up"><i class="fas fa-volume-up"></i></button>
+      </div>
+
+      <button><i class="fas fa-heart"></i></button>
+      <button><i class="fas fa-download"></i></button>
+      <button id="shuffle-btn" title="Modo aleatório">
+        <i class="fas fa-random"></i>
+      </button>
+
+    </div>
+    <audio id="audio-player" preload="metadata"></audio>
+  </div>
+
+  <script src="scripts/player-session.js"></script>
+  <script src="scripts/playerbar.js"></script>
 
     <footer>&copy; 2025 Sua Plataforma Musical</footer>
 
