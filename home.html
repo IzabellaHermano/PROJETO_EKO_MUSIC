@@ -151,8 +151,8 @@
 
       <div class="music-row">
         <div class="cover-container" data-audio="assets/musicasmp3/hotogo.mp3" data-title="Hot to Go"
-          data-artist="Chappel Roan" data-style="Pop" data-cover="assets/musicas-albuns/hot-to-go_chappel-roan.jpeg">
-          <img src="assets/musicas-albuns/hot-to-go_chappel-roan.jpeg" alt="Hot To Go" />
+          data-artist="Chappel Roan" data-style="Pop" data-cover="assets/musicas-albuns/hot-to-go_chappel-roan.png">
+          <img src="assets/musicas-albuns/hot-to-go_chappel-roan.png" alt="Hot To Go" />
           <div class="play"><i class="fa-solid fa-play"></i></div>
         </div>
         <span class="title">Hot to Go</span>
@@ -258,6 +258,20 @@
           <span class="album">The Favorite Worst Nightmare</span>
           <span class="favorite"><i class="far fa-heart"></i></span>
         </div>
+        
+        <div class="music-row">
+          <div class="cover-container" data-audio="assets/musicasmp3/tears.mp3" data-title="505"
+            data-artist="Sabrina Carpenter" data-style="Pop"
+            data-cover="assets/musicas-albuns/505-articmonkeys-favouriteworstnightmare.png">
+            <img src="assets/musicas-albuns/tears.png" alt="505" />
+            <div class="play"><i class="fas fa-play"></i></div>
+          </div>
+          <span class="title">Tears</span>
+          <span class="artist">Sabrina Carpenter</span>
+          <span class="genre">Pop</span>
+          <span class="album">Man's Best Friend</span>
+          <span class="favorite"><i class="far fa-heart"></i></span>
+        </div>
 
         <div class="music-row">
           <div class="cover-container" data-audio="assets/musicasmp3/dapontepraca.mp3" data-title="Da Ponte pra Cá"
@@ -312,7 +326,7 @@
     </section>
   </main>
 
-  <div id="player-bar" class="ativo">
+  <div id="player-bar" class="hidden">
     <div class="player-left">
       <img id="track-cover" src="assets/musicas-albuns/imagem.png" alt="Capa" />
       <div class="track-info">
@@ -343,6 +357,10 @@
 
       <button><i class="fas fa-heart"></i></button>
       <button><i class="fas fa-download"></i></button>
+      <button id="shuffle-btn" title="Modo aleatório">
+        <i class="fas fa-random"></i>
+      </button>
+
     </div>
     <audio id="audio-player" preload="metadata"></audio>
   </div>
@@ -354,6 +372,7 @@
       <div class="popup-album-header">
         <img src="assets/musicas-albuns/dont-cry_gnroses_use-your-illusionI.png" alt="Capa do álbum" />
         <button class="popup-album-play"><i class="fas fa-play"></i></button>
+        <span class="preview-label">Escutar uma prévia</span>
       </div>
       <h3>Use Your Illusion I</h3>
       <p>Guns N' Roses</p>
@@ -419,6 +438,7 @@
       <div class="popup-album-header">
         <img src="assets/musicas-albuns/starboy-theweeknd.png" alt="Capa do álbum" />
         <button class="popup-album-play"><i class="fas fa-play"></i></button>
+        <span class="preview-label">Escutar uma prévia</span>
       </div>
       <h3>Starboy</h3>
       <p>The Weeknd</p>
@@ -453,6 +473,7 @@
       <div class="popup-album-header">
         <img src="assets/musicas-albuns/ozzyosbourne-nomoretears.png" alt="Capa do álbum" />
         <button class="popup-album-play"><i class="fas fa-play"></i></button>
+        <span class="preview-label">Escutar uma prévia</span>
       </div>
       <h3>No More Tears</h3>
       <p>Ozzy Osbourne</p>
@@ -487,6 +508,7 @@
       <div class="popup-album-header">
         <img src="assets/musicas-albuns/osmlkeliso-mcrodolfinho-osmlkeliso.png" alt="Capa do álbum" />
         <button class="popup-album-play"><i class="fas fa-play"></i></button>
+        <span class="preview-label">Escutar uma prévia</span>
       </div>
       <h3>Os muleke é liso</h3>
       <p>MC Rodolfinho</p>
@@ -521,6 +543,7 @@
       <div class="popup-album-header">
         <img src="assets/musicas-albuns/umbomlugar-sabotage-rapecompromiso.png" alt="Capa do álbum" />
         <button class="popup-album-play"><i class="fas fa-play"></i></button>
+        <span class="preview-label">Escutar uma prévia</span>
       </div>
       <h3>Rap é compromisso</h3>
       <p>Sabotage</p>
@@ -554,6 +577,7 @@
       <div class="popup-album-header">
         <img src="assets/musicas-albuns/teusegredo-exaltasamba.png" alt="Capa do álbum" />
         <button class="popup-album-play"><i class="fas fa-play"></i></button>
+        <span class="preview-label">Escutar uma prévia</span>
       </div>
       <h3>Ao Vivo na Ilha da Magia</h3>
       <p>Exaltasamba</p>
@@ -591,58 +615,111 @@
   <footer>&copy; 2025 Sua Plataforma Musical</footer>
 
   <script src="scripts/popupsair.js"></script>
-  <script src="scripts/home.js"></script>
+  <script src="scripts/player-session.js"></script>
+  <script src="scripts/playerbar.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".album-card .play-overlay").forEach((playIcon) => {
-        playIcon.addEventListener("click", () => {
-          const card = playIcon.closest(".album-card");
-          const popupId = card.dataset.popup;
-          const audioSrc = card.dataset.audio;
-          const popup = document.getElementById(popupId);
-          if (!popup || !audioSrc) return;
+document.addEventListener("DOMContentLoaded", () => {
+  let currentPopup = null;
 
-          const audio = popup.querySelector("audio");
-          const playBtn = popup.querySelector(".popup-album-play");
-          const closeBtn = popup.querySelector(".popup-album-close");
+  document.querySelectorAll(".album-card .play-overlay").forEach((playIcon) => {
+    playIcon.addEventListener("click", () => {
+      const card = playIcon.closest(".album-card");
+      const popupId = card.dataset.popup;
+      const audioSrc = card.dataset.audio;
+      const popup = document.getElementById(popupId);
+      if (!popup || !audioSrc) return;
 
-          // Atualiza o áudio
-          audio.pause();
-          audio.src = audioSrc;
-          audio.load();
+      // Remove o <audio> antigo, se existir
+      const oldAudio = popup.querySelector("audio");
+      if (oldAudio) oldAudio.remove();
 
-          // Limpa eventos anteriores
-          playBtn.onclick = null;
-          closeBtn.onclick = null;
+      // Cria novo <audio>
+      const audio = document.createElement("audio");
+      audio.src = audioSrc;
+      audio.preload = "metadata";
+      popup.appendChild(audio);
 
-          // Abre o popup
-          popup.classList.remove("hidden");
-          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      const playBtn = popup.querySelector(".popup-album-play");
+      const closeBtn = popup.querySelector(".popup-album-close");
 
-          // Botão de play
-          playBtn.addEventListener("click", () => {
-            if (audio.paused) {
-              audio.play().then(() => {
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-              }).catch(err => {
-                console.error("Erro ao tocar áudio:", err);
-              });
-            } else {
-              audio.pause();
-              playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            }
-          });
+      playBtn.onclick = null;
+      closeBtn.onclick = null;
 
-          // Botão de fechar
-          closeBtn.addEventListener("click", () => {
-            popup.classList.add("hidden");
-            audio.pause();
-            audio.currentTime = 0;
+      popup.classList.remove("hidden");
+      currentPopup = popup;
+
+      playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      playBtn.disabled = true;
+
+      audio.addEventListener("canplay", () => {
+        playBtn.disabled = false;
+      }, { once: true });
+
+      playBtn.addEventListener("click", () => {
+        const globalPlayer = document.getElementById("audio-player");
+        if (globalPlayer && !globalPlayer.paused) {
+          globalPlayer.pause();
+          globalPlayer.currentTime = 0;
+          const globalPlayBtn = document.getElementById("play-pause-btn");
+          if (globalPlayBtn) {
+            globalPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+          }
+        }
+
+        document.querySelectorAll("audio").forEach(otherAudio => {
+          if (otherAudio !== audio) {
+            otherAudio.pause();
+            otherAudio.currentTime = 0;
+          }
+        });
+
+        if (audio.paused) {
+          audio.play().then(() => {
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+          }).catch(err => {
+            console.error("Erro ao tocar áudio:", err);
             playBtn.innerHTML = '<i class="fas fa-play"></i>';
           });
-        });
+        } else {
+          audio.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      });
+
+      closeBtn.addEventListener("click", () => {
+        popup.classList.add("hidden");
+        audio.pause();
+        audio.currentTime = 0;
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        playBtn.disabled = true;
+        currentPopup = null;
       });
     });
+  });
+
+  // Fecha o popup ao pressionar ESC
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && currentPopup && !currentPopup.classList.contains("hidden")) {
+      currentPopup.classList.add("hidden");
+
+      const audio = currentPopup.querySelector("audio");
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      const playBtn = currentPopup.querySelector(".popup-album-play");
+      if (playBtn) {
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        playBtn.disabled = true;
+      }
+
+      currentPopup = null;
+    }
+  });
+});
+
+
   </script>
 </body>
 </html>

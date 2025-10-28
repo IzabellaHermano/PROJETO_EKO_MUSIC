@@ -1,336 +1,641 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eko - Playlists</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/popupsair.css" />
+    <link rel="stylesheet" href="css/playlists.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eko - Playlists</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/home.css" />
-  <link rel="stylesheet" href="css/popupsair.css" />
-  <link rel="stylesheet" href="css/playlists.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img
+          src="assets/identidade_visual/Combination Mark Horizontal - Light.png"
+          alt="Logo"
+        />
+      </div>
+      <div class="header-buttons">
+        <a href="perfil.html"><button>Perfil</button></a>
+        <button onclick="abrirPopUp()">Sair</button>
+      </div>
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <span id="confirmar">Tem certeza de que deseja sair?</span
+          ><br /><br />
+          <a href="index.html"><button>Sair</button></a>
+          <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
+        </div>
+      </div>
+    </header>
 
-<body>
-  <header>
-    <div class="logo-container">
-      <img src="assets/identidade_visual/Combination Mark Horizontal - Light.png" alt="Logo" />
-    </div>
-    <div class="header-buttons">
-      <a href="perfil.html"><button>Perfil</button></a>
-      <button onclick="abrirPopUp()">Sair</button>
-    </div>
-    <div class="popup" id="popup">
+    <nav id="sidebar">
+      <ul>
+        <li>
+          <a href="home.html"><i class="fas fa-house"></i> Início</a>
+        </li>
+        <li>
+          <a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a>
+        </li>
+        <li>
+          <a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="playlist-page">
+        <button id="criar-playlistBtn">
+          Criar Playlist <i class="fa-solid fa-square-plus"></i>
+        </button>
+        <div id="playlists-container"></div>
+      </section>
+    </main>
+
+    <div id="playlist-popup" class="popup hidden">
       <div class="popup-content">
-        <span id="confirmar">Tem certeza de que deseja sair?</span><br><br>
-        <a href="index.html"><button>Sair</button></a>
-        <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
+        <button id="close-popup">X</button>
+        <h2>Criar nova playlist</h2>
+        <input type="text" id="playlist-name" placeholder="Nome da playlist" />
+        <input type="text" id="playlist-author" placeholder="Seu nome" />
+        <input type="file" id="playlist-image-file" accept="image/*" />
+        <textarea id="playlist-description" placeholder="Descrição"></textarea>
+
+        <h3>Adicionar músicas</h3>
+        <!-- seção de todas as músicas disponíveis na API (extremamente grande) -->
+        <div id="music-selection">
+          <label>
+            <input
+              type="checkbox"
+              value="Die For You"
+              data-src="assets/musicasmp3/starboy.mp3"
+              data-artist="The Weeknd"
+              data-genre="R&B"
+              data-album="Starboy"
+            />
+            Die For You – The Weeknd </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="No More Tears"
+              data-src="assets/musicasmp3/nomoretears.mp3"
+              data-artist="Ozzy Osbourne"
+              data-genre="Rock"
+              data-album="No More Tears"
+            />
+            No More Tears – Ozzy Osbourne </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Os muleke é liso"
+              data-src="assets/musicasmp3/osmlkeliso.mp3"
+              data-artist="MC Rodolfinho"
+              data-genre="Funk"
+              data-album="Os Muleke é Liso"
+            />
+            Os muleke é liso – MC Rodolfinho </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="505"
+              data-src="assets/musicasmp3/505.mp3"
+              data-artist="Artic Monkeys"
+              data-genre="Pop"
+              data-album="The Favorite Worst Nightmare"
+            />
+            505 - Arctic Monkeys </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Sublime Renúncia"
+              data-src="assets/musicasmp3/sublimerenuncia.mp3"
+              data-artist="Leandro & Leonardo"
+              data-genre="Sertanejo"
+              data-album="Explosão de Desejos"
+            />
+            Sublime Renúncia - Leandro e Leonardo </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Hot To Go"
+              data-src="assets/musicasmp3/hotogo.mp3"
+              data-artist="Chappel Roan"
+              data-genre="Pop"
+              data-album="The Rise and Fall of a Midwest Princess"
+            />
+            Hot To Go - Chappel Roan </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Da Ponte pra Cá"
+              data-src="assets/musicasmp3/dapontepraca.mp3"
+              data-artist="Racionais MC's"
+              data-genre="Rap"
+              data-album="Nada como um dia após o outro dia"
+            />
+            Da Ponte pra Cá - Racionais MC's </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Don't Cry"
+              data-src="assets/musicasmp3/dontcry.mp3"
+              data-artist="Guns N' Roses"
+              data-genre="Rock"
+              data-album="Use Your Illusion I"
+            />
+            Don't Cry - Guns N' Roses </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Lugar ao Sol"
+              data-src="assets/musicasmp3/lugaraosol.mp3"
+              data-artist="Charlie Brown Jr."
+              data-genre="Rock"
+              data-album="100% Charlie Brown"
+            />
+            Lugar ao Sol - Charlie Brown Jr. </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Supera"
+              data-src="assets/musicasmp3/supera.mp3"
+              data-artist="Péricles"
+              data-genre="Pagode"
+              data-album="Ao Vivo"
+            />
+            Supera - Péricles </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Teu Segredo"
+              data-src="assets/musicasmp3/teusegredo.mp3"
+              data-artist="ExaltaSamba"
+              data-genre="Pagode"
+              data-album="Ao Vivo na Ilha da Magia"
+            />
+            Teu Segredo - Exaltasamba </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Um Bom Lugar"
+              data-src="assets/musicasmp3/umbomlugar.mp3"
+              data-artist="Sabotage"
+              data-genre="Rap"
+              data-album="Rap é Compromisso"
+            />
+            Um Bom Lugar - Sabotage </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Tears"
+              data-src="assets/musicasmp3/tears.mp3"
+              data-artist="Sabrina Carpenter"
+              data-genre="Pop"
+              data-album=""
+            />
+            Tears – Sabrina Carpenter </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Confident"
+              data-src="assets/musicasmp3/confident.mp3"
+              data-artist="Justin Bieber"
+              data-genre="Pop"
+              data-album=""
+            />
+            Confident – Justin Bieber </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Long Way 2 Go"
+              data-src="assets/musicasmp3/longway2go.mp3"
+              data-artist="Cassie"
+              data-genre="Pop"
+              data-album=""
+            />
+            Long Way 2 Go – Cassie </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Into You"
+              data-src="assets/musicasmp3/intoyou.mp3"
+              data-artist="Ariana Grande"
+              data-genre="Pop"
+              data-album=""
+            />
+            Into You – Ariana Grande </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Girls Need Love"
+              data-src="assets/musicasmp3/girlsneedlove.mp3"
+              data-artist="Summer Walker"
+              data-genre="Pop"
+              data-album=""
+            />
+            Girls Need Love – Summer Walker </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Art Deco"
+              data-src="assets/musicasmp3/artdeco.mp3"
+              data-artist="Art Deco"
+              data-genre="Pop"
+              data-album=""
+            />
+            Art Deco – Art Deco </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Alejandro"
+              data-src="assets/musicasmp3/alejandro.mp3"
+              data-artist="Lady Gaga"
+              data-genre="Pop"
+              data-album=""
+            />
+            Alejandro – Lady Gaga </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Amina"
+              data-src="assets/musicasmp3/amina.mp3"
+              data-artist="Tasha & Tracie"
+              data-genre="Rap"
+              data-album=""
+            />
+            Amina – Tasha & Tracie </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Duquesa"
+              data-src="assets/musicasmp3/duquesa.mp3"
+              data-artist="Purple Rain feat Vuk Vino"
+              data-genre="Rap"
+              data-album=""
+            />
+            Duquesa – Purple Rain feat Vuk Vino </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Celine"
+              data-src="assets/musicasmp3/celine.mp3"
+              data-artist="Vulgo FK, Kayblack, Wey"
+              data-genre="Rap"
+              data-album=""
+            />
+            Celine – Vulgo FK, Kayblack, Wey </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Olho de Tigre"
+              data-src="assets/musicasmp3/olhodetigre.mp3"
+              data-artist="Djonga"
+              data-genre="Rap"
+              data-album=""
+            />
+            Olho de Tigre – Djonga </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Beatriz"
+              data-src="assets/musicasmp3/beatriz.mp3"
+              data-artist="2ZDINIZZ"
+              data-genre="Rap"
+              data-album=""
+            />
+            Beatriz – 2ZDINIZZ </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Ela Me Faz"
+              data-src="assets/musicasmp3/elamefaz.mp3"
+              data-artist="Rael"
+              data-genre="Rap"
+              data-album=""
+            />
+            Ela Me Faz – Rael </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Só Precisamos de Nós"
+              data-src="assets/musicasmp3/soprecisamosdenos.mp3"
+              data-artist="Filipe Ret"
+              data-genre="Rap"
+              data-album=""
+            />
+            Só Precisamos de Nós – Filipe Ret </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Quadros"
+              data-src="assets/musicasmp3/quadros.mp3"
+              data-artist="3. Quadros ft. Ashira e Luccas Carlos"
+              data-genre="Rap"
+              data-album=""
+            />
+            Quadros – 3. Quadros ft. Ashira e Luccas Carlos </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Deixa Tudo Como Tá"
+              data-src="assets/musicasmp3/deixatudocomota.mp3"
+              data-artist="Grupo Menos é Mais"
+              data-genre="Pagode"
+              data-album=""
+            />
+            Deixa Tudo Como Tá – Grupo Menos é Mais </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Deixa Alegrar"
+              data-src="assets/musicasmp3/deixaalegrar.mp3"
+              data-artist="Grupo Revelação"
+              data-genre="Pagode"
+              data-album=""
+            />
+            Deixa Alegrar – Grupo Revelação </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Lanchinho"
+              data-src="assets/musicasmp3/lancinho.mp3"
+              data-artist="Turma do Pagode"
+              data-genre="Pagode"
+              data-album=""
+            />
+            Lanchinho – Turma do Pagode </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Insegurança"
+              data-src="assets/musicasmp3/inseguranca.mp3"
+              data-artist="Pixote"
+              data-genre="Pagode"
+              data-album=""
+            />
+            Insegurança – Pixote </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Tempo Perdido"
+              data-src="assets/musicasmp3/tempoperdido.mp3"
+              data-artist="Legião Urbana"
+              data-genre="Rock"
+              data-album=""
+            />
+            Tempo Perdido – Legião Urbana </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Emergency"
+              data-src="assets/musicasmp3/emergency.mp3"
+              data-artist="Paramore"
+              data-genre="Rock"
+              data-album=""
+            />
+            Emergency – Paramore </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Livin’ On A Prayer"
+              data-src="assets/musicasmp3/livinprayer.mp3"
+              data-artist="Bon Jovi"
+              data-genre="Rock"
+              data-album=""
+            />
+            Livin’ On A Prayer – Bon Jovi </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Pé Na Areia"
+              data-src="assets/musicasmp3/penaareia.mp3"
+              data-artist="Diogo Nogueira"
+              data-genre="Pagode"
+              data-album=""
+            />
+            Pé Na Areia – Diogo Nogueira </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Camisa 10"
+              data-src="assets/musicasmp3/camisa10.mp3"
+              data-artist="Turma do Pagode"
+              data-genre="Pagode"
+              data-album=""
+            />
+            Camisa 10 – Turma do Pagode </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="A Primeira Namorada"
+              data-src="assets/musicasmp3/primeiranamorada.mp3"
+              data-artist="Sorriso Maroto"
+              data-genre="Pagode"
+              data-album=""
+            />
+            A Primeira Namorada – Sorriso Maroto </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Coração Partido"
+              data-src="assets/musicasmp3/coracaopartido.mp3"
+              data-artist="Grupo Menos é Mais"
+              data-genre="Pagode"
+              data-album=""
+            />
+            Coração Partido – Grupo Menos é Mais </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="A Velha História"
+              data-src="assets/musicasmp3/velhahistoria.mp3"
+              data-artist="CPM 22"
+              data-genre="Rock"
+              data-album=""
+            />
+            A Velha História – CPM 22 </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="T.N.T."
+              data-src="assets/musicasmp3/tnt.mp3"
+              data-artist="AC/DC"
+              data-genre="Rock"
+              data-album=""
+            />
+            T.N.T. – AC/DC </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Livin’ On A Prayer"
+              data-src="assets/musicasmp3/livinprayr.mp3"
+              data-artist="Bon Jovi"
+              data-genre="Rock"
+              data-album=""
+            />
+            Livin’ On A Prayer – Bon Jovi </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Bring Me To Life"
+              data-src="assets/musicasmp3/bringmetolife.mp3"
+              data-artist="Evanescence"
+              data-genre="Rock"
+              data-album=""
+            />
+            Bring Me To Life – Evanescence </label
+          ><br />
+
+          <label>
+            <input
+              type="checkbox"
+              value="Cedo ou Tarde"
+              data-src="assets/musicasmp3/cedoutarde.mp3"
+              data-artist="NX Zero"
+              data-genre="Rock"
+              data-album=""
+            />
+            Cedo ou Tarde – NX Zero </label
+          ><br />
+        </div>
+        <button id="save-playlist">Salvar playlist</button>
       </div>
     </div>
-  </header>
 
-  <nav id="sidebar">
-    <ul>
-      <li><a href="home.html"><i class="fas fa-house"></i> Início</a></li>
-      <li><a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a></li>
-      <li><a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <section id="playlist-page">
-      <button id="criar-playlistBtn">Criar Playlist <i class="fa-solid fa-square-plus"></i></button>
-      <div id="playlists-container"></div>
-    </section>
-  </main>
-
-  <div id="playlist-popup" class="popup hidden">
-    <div class="popup-content">
-      <button id="close-popup">X</button>
-      <h2>Criar nova playlist</h2>
-      <input type="text" id="playlist-name" placeholder="Nome da playlist" />
-      <input type="text" id="playlist-author" placeholder="Seu nome" />
-      <input type="file" id="playlist-image-file" accept="image/*" />
-      <textarea id="playlist-description" placeholder="Descrição"></textarea>
-
-      <h3>Adicionar músicas</h3>
-      <div id="music-selection">
-        <label>
-          <input type="checkbox" value="Die For You" data-src="assets/musicasmp3/starboy.mp3" data-artist="The Weeknd"
-            data-genre="R&B" data-album="Starboy" />
-          Die For You – The Weeknd
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="No More Tears" data-src="assets/musicasmp3/nomoretears.mp3"
-            data-artist="Ozzy Osbourne" data-genre="Rock" data-album="No More Tears" />
-          No More Tears – Ozzy Osbourne
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Os muleke é liso" data-src="assets/musicasmp3/osmlkeliso.mp3"
-            data-artist="MC Rodolfinho" data-genre="Funk" data-album="Os Muleke é Liso" />
-          Os muleke é liso – MC Rodolfinho
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="505" data-src="assets/musicasmp3/505.mp3" data-artist="Artic Monkeys"
-            data-genre="Pop" data-album="The Favorite Worst Nightmare" />
-          505 - Arctic Monkeys
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Sublime Renúncia" data-src="assets/musicasmp3/sublimerenuncia.mp3"
-            data-artist="Leandro & Leonardo" data-genre="Sertanejo" data-album="Explosão de Desejos" />
-          Sublime Renúncia - Leandro e Leonardo
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Hot To Go" data-src="assets/musicasmp3/hotogo.mp3" data-artist="Chappel Roan"
-            data-genre="Pop" data-album="The Rise and Fall of a Midwest Princess" />
-          Hot To Go - Chappel Roan
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Da Ponte pra Cá" data-src="assets/musicasmp3/dapontepraca.mp3"
-            data-artist="Racionais MC's" data-genre="Rap" data-album="Nada como um dia após o outro dia" />
-          Da Ponte pra Cá - Racionais MC's
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Don't Cry" data-src="assets/musicasmp3/dontcry.mp3" data-artist="Guns N' Roses"
-            data-genre="Rock" data-album="Use Your Illusion I" />
-          Don't Cry - Guns N' Roses
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Lugar ao Sol" data-src="assets/musicasmp3/lugaraosol.mp3"
-            data-artist="Charlie Brown Jr." data-genre="Rock" data-album="100% Charlie Brown" />
-          Lugar ao Sol - Charlie Brown Jr.
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Supera" data-src="assets/musicasmp3/supera.mp3" data-artist="Péricles"
-            data-genre="Pagode" data-album="Ao Vivo" />
-          Supera - Péricles
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Teu Segredo" data-src="assets/musicasmp3/teusegredo.mp3"
-            data-artist="ExaltaSamba" data-genre="Pagode" data-album="Ao Vivo na Ilha da Magia" />
-          Teu Segredo - Exaltasamba
-        </label><br>
-
-        <label>
-          <input type="checkbox" value="Um Bom Lugar" data-src="assets/musicasmp3/umbomlugar.mp3" data-artist="Sabotage"
-            data-genre="Rap" data-album="Rap é Compromisso" />
-          Um Bom Lugar - Sabotage
-        </label><br>
-
+    <div id="player-bar" class="hidden">
+      <div class="player-left">
+        <img
+          id="track-cover"
+          src="assets/musicas-albuns/imagem.png"
+          alt="Capa"
+        />
+        <div class="track-info">
+          <span id="track-title">Nome da Música</span>
+          <span id="track-artist">Artista • Estilo</span>
+        </div>
       </div>
-      <button id="save-playlist">Salvar playlist</button>
+      <div class="player-center">
+        <div class="controls">
+          <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+          <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+          <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+        </div>
+        <input type="range" id="progress-bar" value="0" />
+        <div class="time-info">
+          <span id="current-time">0:00</span>
+          <span id="total-time">0:00</span>
+        </div>
+      </div>
+      <div class="player-right">
+        <div class="volume-control">
+          <button id="volume-down"><i class="fas fa-volume-down"></i></button>
+          <input
+            type="range"
+            id="volume-slider"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+          />
+          <button id="volume-up"><i class="fas fa-volume-up"></i></button>
+        </div>
+        <button><i class="fas fa-heart"></i></button>
+        <button><i class="fas fa-download"></i></button>
+      </div>
+      <audio id="audio-player" preload="metadata"></audio>
     </div>
-  </div>
 
-  <div id="player-bar" class="hidden">
-    <div class="player-left">
-      <img id="track-cover" src="assets/musicas-albuns/imagem.png" alt="Capa" />
-      <div class="track-info">
-        <span id="track-title">Nome da Música</span>
-        <span id="track-artist">Artista • Estilo</span>
-      </div>
-    </div>
-    <div class="player-center">
-      <div class="controls">
-        <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
-        <button id="play-pause-btn"><i class="fas fa-play"></i></button>
-        <button id="next-btn"><i class="fas fa-step-forward"></i></button>
-      </div>
-      <input type="range" id="progress-bar" value="0" />
-      <div class="time-info">
-        <span id="current-time">0:00</span>
-        <span id="total-time">0:00</span>
-      </div>
-    </div>
-    <div class="player-right">
-      <div class="volume-control">
-        <button id="volume-down"><i class="fas fa-volume-down"></i></button>
-        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
-        <button id="volume-up"><i class="fas fa-volume-up"></i></button>
-      </div>
-      <button><i class="fas fa-heart"></i></button>
-      <button><i class="fas fa-download"></i></button>
-    </div>
-    <audio id="player-audio" preload="metadata"></audio>
-  </div>
-
-  <script src="scripts/home.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const createBtn = document.getElementById("criar-playlistBtn");
-      const popup = document.getElementById("playlist-popup");
-      const closePopup = document.getElementById("close-popup");
-      const saveBtn = document.getElementById("save-playlist");
-      const container = document.getElementById("playlists-container");
-      const playerBar = document.getElementById("player-bar");
-      const playerAudio = document.getElementById("player-audio");
-      const playerTitle = document.getElementById("track-title");
-
-      const DEFAULT_IMAGE = "assets/icon.png";
-
-      //carrega o doc
-      const savedPlaylists = JSON.parse(localStorage.getItem("playlists")) || [];
-      savedPlaylists.forEach(renderPlaylistCard);
-
-      //abrir popup
-      createBtn.onclick = () => popup.classList.remove("hidden");
-      closePopup.onclick = () => popup.classList.add("hidden");
-
-      //add playlist
-      saveBtn.onclick = () => {
-        const name = document.getElementById("playlist-name").value.trim();
-        const author = document.getElementById("playlist-author").value.trim();
-        //lógica para a imagem ser anexada
-        const imageInput = document.getElementById("playlist-image-file");
-        let imageData = DEFAULT_IMAGE;
-
-        if (imageInput.files.length > 0) {
-          const file = imageInput.files[0];
-          imageData = URL.createObjectURL(file);
-        }
-        const description = document.getElementById("playlist-description").value.trim();
-
-        const selectedTracks = Array.from(document.querySelectorAll("#music-selection input:checked")).map(input => ({
-          title: input.value,
-          src: input.dataset.src,
-          artist: input.dataset.artist || "Artista desconhecido",
-          genre: input.dataset.genre || "Gênero indefinido",
-          album: input.dataset.album || "Álbum desconhecido"
-        }));
-
-        if (!name || !author || selectedTracks.length === 0) {
-          alert("Opa! Não se esqueça de dar um nome a sua Playlist e dizer aos ouvintes quem é você!");
-          return;
-        }
-
-        if (savedPlaylists.some(p => p.name === name)) {
-          alert("Foi encontrada uma playlist sua com o mesmo nome!");
-          return;
-        }
-
-        const newPlaylist = {
-          name,
-          author,
-          image: imageData,
-          description,
-          tracks: selectedTracks
-        };
-
-        savedPlaylists.push(newPlaylist);
-        localStorage.setItem("playlists", JSON.stringify(savedPlaylists));
-
-        renderPlaylistCard(newPlaylist);
-        popup.classList.add("hidden");
-        document.getElementById("playlist-name").value = "";
-        document.getElementById("playlist-author").value = "";
-        document.getElementById("playlist-image-file").value = "";
-        document.getElementById("playlist-description").value = "";
-        document.querySelectorAll("#music-selection input").forEach(input => input.checked = false);
-      };
-
-      //show cards de playlist
-      function renderPlaylistCard(playlist) {
-        const card = document.createElement("div");
-        card.className = "playlist-card";
-        card.innerHTML = `
-      <div class="playlist-cover">
-        <img src="${playlist.image}" alt="${playlist.name}" />
-        <div class="play-overlay"><i class="fas fa-play"></i></div>
-      </div>
-      <h3>${playlist.name}</h3>
-      <p>Por: ${playlist.author}</p>
-    `;
-        card.dataset.tracks = JSON.stringify(playlist.tracks);
-        card.dataset.description = playlist.description || "";
-        container.appendChild(card);
-      }
-
-      //abrir faixas
-      container.addEventListener("click", (e) => {
-        const card = e.target.closest(".playlist-card");
-        if (!card) return;
-        const tracks = JSON.parse(card.dataset.tracks);
-        const playlistName = card.querySelector("h3").textContent;
-        const playlistDescription = card.dataset.description || "";
-        showPlaylistTracks(tracks, playlistName, playlistDescription, card);
-
-      });
-
-      // mostrar faixas e tocar
-      function showPlaylistTracks(tracks, playlistName, playlistDescription, cardElement) {
-        const existing = document.querySelector(".playlist-display");
-        if (existing) existing.remove();
-
-        const wrapper = document.createElement("div");
-        wrapper.className = "playlist-display";
-
-        const title = document.createElement("h2");
-        title.textContent = playlistName;
-        wrapper.appendChild(title);
-
-        if (playlistDescription) {
-          const desc = document.createElement("p");
-          desc.textContent = playlistDescription;
-          desc.className = "playlist-description";
-          wrapper.appendChild(desc);
-        }
-
-        tracks.forEach(track => {
-          const row = document.createElement("div");
-          row.className = "music-row";
-          row.innerHTML = `
-      <div class="cover-container"></div>
-      <span class="title">${track.title}</span>
-      <span class="artist">${track.artist}</span>
-      <span class="genre">${track.genre}</span>
-      <span class="album">${track.album}</span>
-      <span class="favorite"><i class="far fa-heart"></i></span>
-    `;
-          row.querySelector(".cover-container").onclick = () => {
-            playerAudio.src = track.src;
-            playerAudio.play();
-            playerTitle.textContent = track.title;
-            document.getElementById("track-artist").textContent = `${track.artist} • ${track.genre}`;
-            const playlistImage = card.querySelector("img").src;
-            showPlaylistTracks(tracks, playlistName, playlistDescription, card, playlistImage);
-            playerBar.classList.remove("hidden");
-          };
-          wrapper.appendChild(row);
-        });
-
-        //excluir playlist
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Excluir Playlist";
-        deleteBtn.className = "delete-playlist-btn";
-        deleteBtn.onclick = () => {
-          const confirmDelete = confirm(`Tem certeza que deseja excluir a playlist "${playlistName}"?`);
-          if (!confirmDelete) return;
-          const updatedPlaylists = savedPlaylists.filter(p => p.name !== playlistName);
-          localStorage.setItem("playlists", JSON.stringify(updatedPlaylists));
-          savedPlaylists.length = 0;
-          savedPlaylists.push(...updatedPlaylists);
-          cardElement.remove();
-          wrapper.remove();
-        };
-
-        wrapper.appendChild(deleteBtn);
-
-        container.appendChild(wrapper);
-      }
-    });
-  </script>
-
-</body>
-
+    <script src="scripts/playerbar.js"></script>
+    <script src="scripts/biblioteca.js"></script>
+    <script src="scripts/player-session.js"></script>
+  </body>
 </html>
