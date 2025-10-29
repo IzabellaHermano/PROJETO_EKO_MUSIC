@@ -133,13 +133,47 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = document.createElement("div");
       row.className = "music-row";
       row.innerHTML = `
-        <div class="cover-container"></div>
-        <span class="title">${track.title}</span>
-        <span class="artist">${track.artist}</span>
-        <span class="genre">${track.genre}</span>
-        <span class="album">${track.album}</span>
-        <span class="favorite"><i class="far fa-heart"></i></span>
-      `;
+  <div class="cover-container"></div>
+  <span class="title">${track.title}</span>
+  <span class="artist">${track.artist}</span>
+  <span class="genre">${track.genre}</span>
+  <span class="album">${track.album}</span>
+`;
+
+// // funcionalidade de favoritar
+// row.querySelector(".favorite-btn2").onclick = () => {
+//   const FAVORITOS_NOME = "Minhas favoritas do EKO";
+//   const FAVORITOS_IMAGEM = "assets/icone-coração.png";
+//   const usuario = localStorage.getItem("nome") || "Usuário";
+
+//   const playlists = JSON.parse(localStorage.getItem("playlists")) || [];
+//   let favoritos = playlists.find(p => p.name === FAVORITOS_NOME);
+
+//   // se não existe, cria a playlist de favoritos
+//   if (!favoritos) {
+//     favoritos = {
+//       name: FAVORITOS_NOME,
+//       author: usuario,
+//       image: FAVORITOS_IMAGEM,
+//       description: "Suas músicas favoritas salvas com ❤️",
+//       tracks: []
+//     };
+//     playlists.push(favoritos);
+//   }
+
+//   // verifica se a música já está na playlist
+//   const jaExiste = favoritos.tracks.some(t => t.src === track.src);
+//   if (jaExiste) {
+//     alert("Essa música já está nos seus favoritos!");
+//     return;
+//   }
+
+//   // adiciona a música
+//   favoritos.tracks.push(track);
+//   localStorage.setItem("playlists", JSON.stringify(playlists));
+//   alert(`"${track.title}" foi adicionada à playlist Minhas favoritas do EKO!`);
+// };
+
       row.querySelector(".cover-container").onclick = () => {
         // salva os dados da música na sessionStorage pra tocar
         const trackData = {

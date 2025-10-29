@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/popupsair.css" />
     <link rel="stylesheet" href="css/playlists.css" />
+    <link rel="stylesheet" href="css/popupFavorito.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -628,14 +629,24 @@
           />
           <button id="volume-up"><i class="fas fa-volume-up"></i></button>
         </div>
-        <button><i class="fas fa-heart"></i></button>
+        <button id="favorite-btn" title="Favoritar">
+          <i class="fas fa-heart"></i>
+        </button>
         <button><i class="fas fa-download"></i></button>
       </div>
       <audio id="audio-player" preload="metadata"></audio>
     </div>
 
+    <div id="popupFavorito" class="popup-favorito" style="display: none">
+      <div class="popup-conteudo">
+        <p id="popupFavoritoTexto"></p>
+        <button id="fecharPopupFavorito">Fechar</button>
+      </div>
+    </div>
+
     <script src="scripts/playerbar.js"></script>
     <script src="scripts/biblioteca.js"></script>
     <script src="scripts/player-session.js"></script>
+    <script src="scripts/popupsair.js"></script>
   </body>
 </html>

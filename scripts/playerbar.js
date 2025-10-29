@@ -15,221 +15,221 @@ let isShuffle = false; // se o shuffle estiver ativado
 
 // playlist random
 const originalPlaylist = [
-  { 
-    src: "assets/musicasmp3/tears.mp3", 
-    title: "Tears", 
-    artist: "Sabrina Carpenter", 
-    genre: "Pop", 
-    cover: "assets/musicas-albuns/tears.png" 
+  {
+    src: "assets/musicasmp3/tears.mp3",
+    title: "Tears",
+    artist: "Sabrina Carpenter",
+    genre: "Pop",
+    cover: "assets/musicas-albuns/tears.png"
   },
-  { 
-    src: "assets/musicasmp3/confident.mp3", 
-    title: "Confident", 
-    artist: "Justin Bieber", 
-    genre: "Pop", cover: "assets/musicas-albuns/confident.png" 
+  {
+    src: "assets/musicasmp3/confident.mp3",
+    title: "Confident",
+    artist: "Justin Bieber",
+    genre: "Pop", cover: "assets/musicas-albuns/confident.png"
   },
-  { 
-    src: "assets/musicasmp3/longway2go.mp3", 
-    title: "Long Way 2 Go", 
-    artist: "Cassie", 
-    genre: "Pop", 
-    cover: "assets/musicas-albuns/longway2go.png" 
+  {
+    src: "assets/musicasmp3/longway2go.mp3",
+    title: "Long Way 2 Go",
+    artist: "Cassie",
+    genre: "Pop",
+    cover: "assets/musicas-albuns/longway2go.png"
   },
-  { 
-    src: "assets/musicasmp3/intoyou.mp3", 
-    title: "Into You", 
-    artist: "Ariana Grande", 
-    genre: "Pop", 
-    cover: "assets/musicas-albuns/intoyou.png" 
+  {
+    src: "assets/musicasmp3/intoyou.mp3",
+    title: "Into You",
+    artist: "Ariana Grande",
+    genre: "Pop",
+    cover: "assets/musicas-albuns/intoyou.png"
   },
-  { 
-    src: "assets/musicasmp3/girlsneedlove.mp3", 
-    title: "Girls Need Love", 
-    artist: "Summer Walker", 
-    genre: "Pop", 
-    cover: "assets/musicas-albuns/girlsneedlove.png" 
+  {
+    src: "assets/musicasmp3/girlsneedlove.mp3",
+    title: "Girls Need Love",
+    artist: "Summer Walker",
+    genre: "Pop",
+    cover: "assets/musicas-albuns/girlsneedlove.png"
   },
-  { 
-    src: "assets/musicasmp3/artdeco.mp3", 
-    title: "Art Deco", 
-    artist: "Art Deco", 
-    genre: "Pop", 
-    cover: "assets/musicas-albuns/artdeco.png" 
+  {
+    src: "assets/musicasmp3/artdeco.mp3",
+    title: "Art Deco",
+    artist: "Art Deco",
+    genre: "Pop",
+    cover: "assets/musicas-albuns/artdeco.png"
   },
-  { 
-    src: "assets/musicasmp3/alejandro.mp3", 
-    title: "Alejandro", 
-    artist: "Lady Gaga", 
-    genre: "Pop", 
-    cover: "assets/musicas-albuns/alejandro.png" 
+  {
+    src: "assets/musicasmp3/alejandro.mp3",
+    title: "Alejandro",
+    artist: "Lady Gaga",
+    genre: "Pop",
+    cover: "assets/musicas-albuns/alejandro.png"
   },
-  { 
-    src: "assets/musicasmp3/amina.mp3", 
-    title: "Amina", 
-    artist: "Tasha & Tracie", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/amina.png" 
+  {
+    src: "assets/musicasmp3/amina.mp3",
+    title: "Amina",
+    artist: "Tasha & Tracie",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/amina.png"
   },
-  { 
-    src: "assets/musicasmp3/duquesa.mp3", 
-    title: "Duquesa", 
-    artist: "Purple Rain feat Vuk Vino", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/duquesa.png" 
+  {
+    src: "assets/musicasmp3/duquesa.mp3",
+    title: "Duquesa",
+    artist: "Purple Rain feat Vuk Vino",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/duquesa.png"
   },
-  { 
-    src: "assets/musicasmp3/celine.mp3", 
-    title: "Celine", 
-    artist: "Vulgo FK, Kayblack, Wey", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/celine.png" 
+  {
+    src: "assets/musicasmp3/celine.mp3",
+    title: "Celine",
+    artist: "Vulgo FK, Kayblack, Wey",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/celine.png"
   },
-  { 
-    src: "assets/musicasmp3/olhodetigre.mp3", 
-    title: "Olho de Tigre", 
-    artist: "Djonga", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/olhodetigre.png" 
+  {
+    src: "assets/musicasmp3/olhodetigre.mp3",
+    title: "Olho de Tigre",
+    artist: "Djonga",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/olhodetigre.png"
   },
-  { 
-    src: "assets/musicasmp3/beatriz.mp3", 
-    title: "Beatriz", 
-    artist: "2ZDINIZZ", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/beatriz.png" 
+  {
+    src: "assets/musicasmp3/beatriz.mp3",
+    title: "Beatriz",
+    artist: "2ZDINIZZ",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/beatriz.png"
   },
-  { 
-    src: "assets/musicasmp3/elamefaz.mp3", 
-    title: "Ela Me Faz", 
-    artist: "Rael", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/elamefaz.png" 
+  {
+    src: "assets/musicasmp3/elamefaz.mp3",
+    title: "Ela Me Faz",
+    artist: "Rael",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/elamefaz.png"
   },
-  { 
-    src: "assets/musicasmp3/soprecisamosdenos.mp3", 
-    title: "Só Precisamos de Nós", 
-    artist: "Filipe Ret", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/soprecisamosdenos.png" 
+  {
+    src: "assets/musicasmp3/soprecisamosdenos.mp3",
+    title: "Só Precisamos de Nós",
+    artist: "Filipe Ret",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/soprecisamosdenos.png"
   },
-  { 
-    src: "assets/musicasmp3/quadros.mp3", 
-    title: "Quadros", 
-    artist: "3. Quadros ft. Ashira e Luccas Carlos", 
-    genre: "Rap", 
-    cover: "assets/musicas-albuns/quadros.png" 
+  {
+    src: "assets/musicasmp3/quadros.mp3",
+    title: "Quadros",
+    artist: "3. Quadros ft. Ashira e Luccas Carlos",
+    genre: "Rap",
+    cover: "assets/musicas-albuns/quadros.png"
   },
-  { 
-    src: "assets/musicasmp3/deixatudocomota.mp3", 
-    title: "Deixa Tudo Como Tá", 
-    artist: "Grupo Menos é Mais", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/deixatudocomota.png" 
+  {
+    src: "assets/musicasmp3/deixatudocomota.mp3",
+    title: "Deixa Tudo Como Tá",
+    artist: "Grupo Menos é Mais",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/deixatudocomota.png"
   },
-  { 
-    src: "assets/musicasmp3/deixaalegrar.mp3", 
-    title: "Deixa Alegrar", 
-    artist: "Grupo Revelação", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/deixaalegrar.png" 
+  {
+    src: "assets/musicasmp3/deixaalegrar.mp3",
+    title: "Deixa Alegrar",
+    artist: "Grupo Revelação",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/deixaalegrar.png"
   },
-  { 
-    src: "assets/musicasmp3/lancinho.mp3", 
-    title: "Lanchinho", 
-    artist: "Turma do Pagode", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/lanchinho.png" 
+  {
+    src: "assets/musicasmp3/lancinho.mp3",
+    title: "Lancinho",
+    artist: "Turma do Pagode",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/lancinho.png"
   },
-  { 
-    src: "assets/musicasmp3/inseguranca.mp3", 
-    title: "Insegurança", 
-    artist: "Pixote", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/inseguranca.png" 
+  {
+    src: "assets/musicasmp3/inseguranca.mp3",
+    title: "Insegurança",
+    artist: "Pixote",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/inseguranca.png"
   },
-  { 
-    src: "assets/musicasmp3/tempoperdido.mp3", 
-    title: "Tempo Perdido", 
-    artist: "Legião Urbana", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/tempoperdido.png" 
+  {
+    src: "assets/musicasmp3/tempoperdido.mp3",
+    title: "Tempo Perdido",
+    artist: "Legião Urbana",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/tempoperdido.png"
   },
-  { 
-    src: "assets/musicasmp3/emergency.mp3", 
-    title: "Emergency", 
-    artist: "Paramore", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/emergency.png" 
+  {
+    src: "assets/musicasmp3/emergency.mp3",
+    title: "Emergency",
+    artist: "Paramore",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/emergency.png"
   },
-  { 
-    src: "assets/musicasmp3/livinprayer.mp3", 
-    title: "Livin’ On A Prayer", 
-    artist: "Bon Jovi", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/livinprayer.png" 
+  {
+    src: "assets/musicasmp3/livinprayer.mp3",
+    title: "Livin’ On A Prayer",
+    artist: "Bon Jovi",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/livinprayer.png"
   },
-  { 
-    src: "assets/musicasmp3/penaareia.mp3", 
-    title: "Pé Na Areia", 
-    artist: "Diogo Nogueira", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/penaareia.png" 
+  {
+    src: "assets/musicasmp3/penaareia.mp3",
+    title: "Pé Na Areia",
+    artist: "Diogo Nogueira",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/penaareia.png"
   },
-  { 
-    src: "assets/musicasmp3/camisa10.mp3", 
-    title: "Camisa 10", 
-    artist: "Turma do Pagode", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/camisa10.png" 
+  {
+    src: "assets/musicasmp3/camisa10.mp3",
+    title: "Camisa 10",
+    artist: "Turma do Pagode",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/camisa10.png"
   },
-  { 
-    src: "assets/musicasmp3/primeiranamorada.mp3", 
-    title: "A Primeira Namorada", 
-    artist: "Sorriso Maroto", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/primeiranamorada.png" 
+  {
+    src: "assets/musicasmp3/primeiranamorada.mp3",
+    title: "A Primeira Namorada",
+    artist: "Sorriso Maroto",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/primeiranamorada.png"
   },
-  { 
-    src: "assets/musicasmp3/coracaopartido.mp3", 
-    title: "Coração Partido", 
-    artist: "Grupo Menos é Mais", 
-    genre: "Pagode", 
-    cover: "assets/musicas-albuns/coracaopartido.png" 
+  {
+    src: "assets/musicasmp3/coracaopartido.mp3",
+    title: "Coração Partido",
+    artist: "Grupo Menos é Mais",
+    genre: "Pagode",
+    cover: "assets/musicas-albuns/coracaopartido.png"
   },
-  { 
-    src: "assets/musicasmp3/velhahistoria.mp3", 
-    title: "A Velha História", 
-    artist: "CPM 22", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/velhahistoria.png" 
+  {
+    src: "assets/musicasmp3/velhahistoria.mp3",
+    title: "A Velha História",
+    artist: "CPM 22",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/velhahistoria.png"
   },
-  { 
-    src: "assets/musicasmp3/tnt.mp3", 
-    title: "T.N.T.", 
-    artist: "AC/DC", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/tnt.png" 
+  {
+    src: "assets/musicasmp3/tnt.mp3",
+    title: "T.N.T.",
+    artist: "AC/DC",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/tnt.png"
   },
-  { 
-    src: "assets/musicasmp3/livinprayr.mp3", 
-    title: "Livin’ On A Prayer", 
-    artist: "Bon Jovi", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/livinprayr.png" 
+  {
+    src: "assets/musicasmp3/livinprayr.mp3",
+    title: "Livin’ On A Prayer",
+    artist: "Bon Jovi",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/livinprayr.png"
   },
-  { 
-    src: "assets/musicasmp3/bringmetolife.mp3", 
-    title: "Bring Me To Life", 
-    artist: "Evanescence", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/bringmetolife.png" 
+  {
+    src: "assets/musicasmp3/bringmetolife.mp3",
+    title: "Bring Me To Life",
+    artist: "Evanescence",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/bringmetolife.png"
   },
-  { 
-    src: "assets/musicasmp3/cedoutarde.mp3", 
-    title: "Cedo ou Tarde", 
-    artist: "NX Zero", 
-    genre: "Rock", 
-    cover: "assets/musicas-albuns/cedoutarde.png" 
+  {
+    src: "assets/musicasmp3/cedoutarde.mp3",
+    title: "Cedo ou Tarde",
+    artist: "NX Zero",
+    genre: "Rock",
+    cover: "assets/musicas-albuns/cedoutarde.png"
   },
   {
     src: "assets/musicasmp3/505.mp3",
@@ -333,7 +333,7 @@ if (trackData) {
 
   audioPlayer.addEventListener("canplay", () => {
     if (!wasPaused) {
-      audioPlayer.play().catch(() => {}); // tenta tocar a faixa
+      audioPlayer.play().catch(() => { }); // tenta tocar a faixa
       playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
     } else {
       playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
@@ -366,7 +366,7 @@ function playTrack(index) {
   audioPlayer.pause();
   audioPlayer.src = track.src;
   audioPlayer.load();
-  audioPlayer.play().catch(() => {});
+  audioPlayer.play().catch(() => { });
   playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
   trackTitle.textContent = track.title;
   trackArtist.textContent = `${track.artist} • ${track.genre || "Gênero indefinido"}`;
@@ -408,7 +408,7 @@ document.querySelectorAll(".cover-container").forEach(container => {
 // evento de play/pause
 playPauseBtn.addEventListener("click", () => {
   if (audioPlayer.paused) {
-    audioPlayer.play().catch(() => {}); // tenta tocar a música
+    audioPlayer.play().catch(() => { }); // tenta tocar a música
     playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
     sessionStorage.setItem("playerPaused", "false");
   } else {
@@ -465,7 +465,7 @@ document.addEventListener("keydown", (event) => {
   if (event.code === "Space" && !isTyping) {
     event.preventDefault();
     if (audioPlayer.paused) {
-      audioPlayer.play().catch(() => {});
+      audioPlayer.play().catch(() => { });
       playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
       sessionStorage.setItem("playerPaused", "false");
     } else {
@@ -485,14 +485,18 @@ function shufflePlaylist(array) {
 }
 
 // evento do botão de shuffle
-document.getElementById("shuffle-btn").addEventListener("click", () => {
-  isShuffle = !isShuffle;
+document.addEventListener("DOMContentLoaded", () => {
   const shuffleBtn = document.getElementById("shuffle-btn");
-  shuffleBtn.classList.toggle("active", isShuffle);
+  if (shuffleBtn) {
+    shuffleBtn.addEventListener("click", () => {
+      isShuffle = !isShuffle;
+      shuffleBtn.classList.toggle("active", isShuffle);
 
-  playlist = isShuffle ? shufflePlaylist([...originalPlaylist]) : [...originalPlaylist];
-  currentIndex = 0;
-  playTrack(currentIndex);
+      playlist = isShuffle ? shufflePlaylist([...originalPlaylist]) : [...originalPlaylist];
+      currentIndex = 0;
+      playTrack(currentIndex);
+    });
+  }
 });
 
 // quando a faixa acaba, passa para a próxima
@@ -504,4 +508,80 @@ audioPlayer.addEventListener("ended", () => {
   currentIndex++;
   if (currentIndex >= playlist.length) currentIndex = 0; // volta para o começo
   playTrack(currentIndex);
+});
+
+// botão de próxima faixa
+document.getElementById("next-btn").addEventListener("click", () => {
+  currentIndex++;
+  if (currentIndex >= playlist.length) currentIndex = 0;
+  playTrack(currentIndex);
+});
+
+// botão de faixa anterior
+document.getElementById("prev-btn").addEventListener("click", () => {
+  currentIndex--;
+  if (currentIndex < 0) currentIndex = playlist.length - 1;
+  playTrack(currentIndex);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const favBtn = document.getElementById("favorite-btn");
+  if (!favBtn) return;
+
+  favBtn.addEventListener("click", () => {
+    const trackTitleEl = document.getElementById("track-title");
+    const trackArtistEl = document.getElementById("track-artist");
+    const audioPlayer = document.getElementById("audio-player");
+    const trackCoverEl = document.getElementById("track-cover");
+
+    if (!trackTitleEl || !trackArtistEl || !audioPlayer || !trackCoverEl || !audioPlayer.src) {
+      console.warn("Dados da faixa atual não disponíveis.");
+      return;
+    }
+
+    const FAVORITOS_NOME = "Minhas favoritas do EKO";
+    const FAVORITOS_IMAGEM = "assets/icone-coração.png";
+    const usuario = localStorage.getItem("nome") || "Usuário";
+
+    const playlists = JSON.parse(localStorage.getItem("playlists")) || [];
+    let favoritos = playlists.find(p => p.name === FAVORITOS_NOME);
+
+    if (!favoritos) {
+      favoritos = {
+        name: FAVORITOS_NOME,
+        author: usuario,
+        image: FAVORITOS_IMAGEM,
+        description: "Suas músicas favoritas salvas com o seu coração!",
+        tracks: []
+      };
+      playlists.push(favoritos);
+    }
+
+    const faixaAtual = {
+      title: trackTitleEl.textContent,
+      artist: trackArtistEl.textContent.split(" • ")[0],
+      genre: trackArtistEl.textContent.split(" • ")[1] || "Gênero indefinido",
+      src: audioPlayer.src,
+      album: "Álbum desconhecido",
+      cover: trackCoverEl.src
+    };
+
+    const jaExiste = favoritos.tracks.some(t => t.src === faixaAtual.src);
+    if (jaExiste) {
+      document.getElementById("popupFavoritoTexto").textContent = `"${faixaAtual.title}" já está nos seus favoritos!`;
+    } else {
+      favoritos.tracks.push(faixaAtual);
+      localStorage.setItem("playlists", JSON.stringify(playlists));
+      document.getElementById("popupFavoritoTexto").textContent = `"${faixaAtual.title}" foi adicionada à playlist Minhas favoritas do EKO!`;
+    }
+
+    document.getElementById("popupFavorito").style.display = "flex";
+  });
+
+  const fecharPopup = document.getElementById("fecharPopupFavorito");
+  if (fecharPopup) {
+    fecharPopup.addEventListener("click", () => {
+      document.getElementById("popupFavorito").style.display = "none";
+    });
+  }
 });
