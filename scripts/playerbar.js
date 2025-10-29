@@ -15,12 +15,12 @@ let isShuffle = false; // se o shuffle estiver ativado
 
 // playlist random
 const originalPlaylist = [
-  { 
-    src: "assets/musicasmp3/tears.mp3", 
-    title: "Tears", 
-    artist: "Sabrina Carpenter", 
-    genre: "Pop", 
-    cover: "assets/musicas-albuns/tears.png" 
+  {
+    src: "assets/musicasmp3/tears.mp3",
+    title: "Tears",
+    artist: "Sabrina Carpenter",
+    genre: "Pop",
+    cover: "assets/musicas-albuns/tears.png"
   },
   { 
     src: "assets/musicasmp3/confident.mp3", 
@@ -390,7 +390,7 @@ if (trackData) {
 
   audioPlayer.addEventListener("canplay", () => {
     if (!wasPaused) {
-      audioPlayer.play().catch(() => {}); // tenta tocar a faixa
+      audioPlayer.play().catch(() => { }); // tenta tocar a faixa
       playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
     } else {
       playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
@@ -423,7 +423,7 @@ function playTrack(index) {
   audioPlayer.pause();
   audioPlayer.src = track.src;
   audioPlayer.load();
-  audioPlayer.play().catch(() => {});
+  audioPlayer.play().catch(() => { });
   playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
   trackTitle.textContent = track.title;
   trackArtist.textContent = `${track.artist} • ${track.genre || "Gênero indefinido"}`;
@@ -465,7 +465,7 @@ document.querySelectorAll(".cover-container").forEach(container => {
 // evento de play/pause
 playPauseBtn.addEventListener("click", () => {
   if (audioPlayer.paused) {
-    audioPlayer.play().catch(() => {}); // tenta tocar a música
+    audioPlayer.play().catch(() => { }); // tenta tocar a música
     playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
     sessionStorage.setItem("playerPaused", "false");
   } else {
@@ -522,7 +522,7 @@ document.addEventListener("keydown", (event) => {
   if (event.code === "Space" && !isTyping) {
     event.preventDefault();
     if (audioPlayer.paused) {
-      audioPlayer.play().catch(() => {});
+      audioPlayer.play().catch(() => { });
       playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
       sessionStorage.setItem("playerPaused", "false");
     } else {
@@ -542,14 +542,18 @@ function shufflePlaylist(array) {
 }
 
 // evento do botão de shuffle
-document.getElementById("shuffle-btn").addEventListener("click", () => {
-  isShuffle = !isShuffle;
+document.addEventListener("DOMContentLoaded", () => {
   const shuffleBtn = document.getElementById("shuffle-btn");
-  shuffleBtn.classList.toggle("active", isShuffle);
+  if (shuffleBtn) {
+    shuffleBtn.addEventListener("click", () => {
+      isShuffle = !isShuffle;
+      shuffleBtn.classList.toggle("active", isShuffle);
 
-  playlist = isShuffle ? shufflePlaylist([...originalPlaylist]) : [...originalPlaylist];
-  currentIndex = 0;
-  playTrack(currentIndex);
+      playlist = isShuffle ? shufflePlaylist([...originalPlaylist]) : [...originalPlaylist];
+      currentIndex = 0;
+      playTrack(currentIndex);
+    });
+  }
 });
 
 // quando a faixa acaba, passa para a próxima
@@ -561,4 +565,80 @@ audioPlayer.addEventListener("ended", () => {
   currentIndex++;
   if (currentIndex >= playlist.length) currentIndex = 0; // volta para o começo
   playTrack(currentIndex);
+});
+
+// botão de próxima faixa
+document.getElementById("next-btn").addEventListener("click", () => {
+  currentIndex++;
+  if (currentIndex >= playlist.length) currentIndex = 0;
+  playTrack(currentIndex);
+});
+
+// botão de faixa anterior
+document.getElementById("prev-btn").addEventListener("click", () => {
+  currentIndex--;
+  if (currentIndex < 0) currentIndex = playlist.length - 1;
+  playTrack(currentIndex);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const favBtn = document.getElementById("favorite-btn");
+  if (!favBtn) return;
+
+  favBtn.addEventListener("click", () => {
+    const trackTitleEl = document.getElementById("track-title");
+    const trackArtistEl = document.getElementById("track-artist");
+    const audioPlayer = document.getElementById("audio-player");
+    const trackCoverEl = document.getElementById("track-cover");
+
+    if (!trackTitleEl || !trackArtistEl || !audioPlayer || !trackCoverEl || !audioPlayer.src) {
+      console.warn("Dados da faixa atual não disponíveis.");
+      return;
+    }
+
+    const FAVORITOS_NOME = "Minhas favoritas do EKO";
+    const FAVORITOS_IMAGEM = "assets/icone-coração.png";
+    const usuario = localStorage.getItem("nome") || "Usuário";
+
+    const playlists = JSON.parse(localStorage.getItem("playlists")) || [];
+    let favoritos = playlists.find(p => p.name === FAVORITOS_NOME);
+
+    if (!favoritos) {
+      favoritos = {
+        name: FAVORITOS_NOME,
+        author: usuario,
+        image: FAVORITOS_IMAGEM,
+        description: "Suas músicas favoritas salvas com o seu coração!",
+        tracks: []
+      };
+      playlists.push(favoritos);
+    }
+
+    const faixaAtual = {
+      title: trackTitleEl.textContent,
+      artist: trackArtistEl.textContent.split(" • ")[0],
+      genre: trackArtistEl.textContent.split(" • ")[1] || "Gênero indefinido",
+      src: audioPlayer.src,
+      album: "Álbum desconhecido",
+      cover: trackCoverEl.src
+    };
+
+    const jaExiste = favoritos.tracks.some(t => t.src === faixaAtual.src);
+    if (jaExiste) {
+      document.getElementById("popupFavoritoTexto").textContent = `"${faixaAtual.title}" já está nos seus favoritos!`;
+    } else {
+      favoritos.tracks.push(faixaAtual);
+      localStorage.setItem("playlists", JSON.stringify(playlists));
+      document.getElementById("popupFavoritoTexto").textContent = `"${faixaAtual.title}" foi adicionada à playlist Minhas favoritas do EKO!`;
+    }
+
+    document.getElementById("popupFavorito").style.display = "flex";
+  });
+
+  const fecharPopup = document.getElementById("fecharPopupFavorito");
+  if (fecharPopup) {
+    fecharPopup.addEventListener("click", () => {
+      document.getElementById("popupFavorito").style.display = "none";
+    });
+  }
 });

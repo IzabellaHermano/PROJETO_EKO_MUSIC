@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/identidade_visual/BrandMark_Mascot - Transparente.png" type="image/x-icon" />
 </head>
-<body>
-    <body class="login-bg">
+
+<body class="login-bg">
   <div class="login-box">
     <img src="assets/identidade_visual/Combination Mark Vertical - Transparente.png" alt="Logo Eko" class="logo-login">
     <h1 class="logo-text">Recuperar Senha</h1>
@@ -17,9 +17,36 @@
       <input type="text" placeholder="E-mail ou nome de usuário" required>
       <input type="password" placeholder="Nova Senha" required>
       <input type="password" placeholder="Confirmar Nova Senha" required>
-      <button type="submit" onclick="window.location.href='index.html'; return false;">Confirmar</button>
+      <button type="submit">Confirmar</button>
     </form>
     <br><footer>&copy; 2025 Eko Music</footer>
   </div>
+  <script>
+document.querySelector(".form-login").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const identificador = this.querySelector("input[type='text']").value.trim();
+  const novaSenha = this.querySelectorAll("input[type='password']")[0].value.trim();
+  const confirmarSenha = this.querySelectorAll("input[type='password']")[1].value.trim();
+
+  // if (novaSenha.length < 6) {
+  //   alert("A nova senha deve ter pelo menos 6 caracteres.");
+  //   return;
+  // }
+
+  if (novaSenha !== confirmarSenha) {
+    alert("As senhas não coincidem.");
+    return;
+  }
+
+  // Atualiza a senha diretamente, sem validar usuário
+  localStorage.setItem("senha", novaSenha);
+
+  alert("Senha atualizada com sucesso!");
+  window.location.href = "index.html";
+});
+</script>
+
+
 </body>
 </html>
