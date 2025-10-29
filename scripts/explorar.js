@@ -1,20 +1,4 @@
-// pega os elementos do player
-const audioPlayer = document.getElementById("audio-player");
-const trackCover = document.getElementById("track-cover");
-const trackTitle = document.getElementById("track-title");
-const trackArtist = document.getElementById("track-artist");
-const playPauseBtn = document.getElementById("play-pause-btn");
-const progressBar = document.getElementById("progress-bar");
-const currentTimeDisplay = document.getElementById("current-time");
-const totalTimeDisplay = document.getElementById("total-time");
-
-// variáveis para controlar a faixa atual
-let currentTrack = "";
-let currentIndex = -1;
-let isShuffle = false; // se o shuffle estiver ativado
-
-// playlist random
-const originalPlaylist = [
+const musicas = [
   { 
     src: "assets/musicasmp3/tears.mp3", 
     title: "Tears", 
@@ -375,190 +359,137 @@ const originalPlaylist = [
   }
 ];
 
-// cria uma cópia da playlist original
-let playlist = [...originalPlaylist];
+const input = document.getElementById("search-input");
+const results = document.getElementById("search-results");
+const suggestionsBox = document.createElement("div");
+suggestionsBox.id = "suggestions-box";
+input.parentNode.appendChild(suggestionsBox);
 
-// recupera os dados da última faixa tocada
-const trackData = JSON.parse(sessionStorage.getItem("trackData"));
-const wasPaused = sessionStorage.getItem("playerPaused") === "true";
+let historicoBuscas = JSON.parse(localStorage.getItem("historicoBuscas")) || [];
 
-// se tiver dados da faixa salva, retoma a reprodução
-if (trackData) {
-  audioPlayer.src = trackData.src;
-  audioPlayer.currentTime = trackData.currentTime || 0;
-  audioPlayer.load();
-
-  audioPlayer.addEventListener("canplay", () => {
-    if (!wasPaused) {
-      audioPlayer.play().catch(() => {}); // tenta tocar a faixa
-      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    } else {
-      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-    }
-  }, { once: true });
-
-  trackTitle.textContent = trackData.title;
-  trackArtist.textContent = trackData.artist;
-  trackCover.src = trackData.cover;
-  document.getElementById("player-bar").classList.add("ativo");
-
-  sessionStorage.removeItem("trackData");
+function normalizarTexto(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
-// função para formatar o tempo
-function formatTime(seconds) {
-  const min = Math.floor(seconds / 60);
-  const sec = Math.floor(seconds % 60);
-  return `${min}:${sec < 10 ? "0" + sec : sec}`;
-}
-
-// função para tocar a faixa escolhida
-function playTrack(index) {
-  const track = playlist[index];
-  if (!track) return; // se não tiver faixa, não faz nada
-
-  currentTrack = track.src;
-  currentIndex = index;
-
-  audioPlayer.pause();
-  audioPlayer.src = track.src;
-  audioPlayer.load();
-  audioPlayer.play().catch(() => {});
-  playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-  trackTitle.textContent = track.title;
-  trackArtist.textContent = `${track.artist} • ${track.genre || "Gênero indefinido"}`;
-  trackCover.src = track.cover;
-  document.getElementById("player-bar").classList.add("ativo");
-  sessionStorage.setItem("playerPaused", "false");
-}
-
-// função para tocar faixa pelo src
-function playTrackBySrc(src) {
-  const index = playlist.findIndex(track => track.src === src);
-  if (index !== -1) {
-    playTrack(index);
-  } else {
-    console.warn("Faixa não encontrada na playlist atual.");
+input.addEventListener("input", () => {
+  const termo = normalizarTexto(input.value);
+  if (termo.length < 1) {
+    results.innerHTML = "";
+    suggestionsBox.innerHTML = "";
+    return;
   }
-}
+  mostrarSugestoes(termo);
+  buscarMusicas(termo);
+});
 
-// evento de clique nas capas das faixas
-document.querySelectorAll(".cover-container").forEach(container => {
-  container.addEventListener("click", () => {
-    const audioSrc = container.getAttribute("data-audio");
-    const title = container.getAttribute("data-title");
-    const artist = container.getAttribute("data-artist");
-    const style = container.getAttribute("data-style");
-    const cover = container.getAttribute("data-cover");
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const termo = normalizarTexto(input.value);
+    if (termo && !historicoBuscas.includes(termo)) {
+      historicoBuscas.unshift(termo);
+      if (historicoBuscas.length > 5) historicoBuscas.pop();
+      localStorage.setItem("historicoBuscas", JSON.stringify(historicoBuscas));
+    }
+    mostrarHistorico();
+    suggestionsBox.innerHTML = "";
+  }
+});
 
-    if (!audioSrc) return;
+function buscarMusicas(termo) {
+  results.innerHTML = "";
 
-    trackTitle.textContent = title;
-    trackArtist.textContent = `${artist} • ${style}`;
-    trackCover.src = cover;
-    document.getElementById("player-bar").classList.add("ativo");
-
-    playTrackBySrc(audioSrc);
+  const filtradas = musicas.filter((m) => {
+    const titulo = normalizarTexto(m.title);
+    const artista = normalizarTexto(m.artist);
+    return (
+      titulo.startsWith(termo) ||
+      artista.startsWith(termo)
+    );
   });
-});
 
-// evento de play/pause
-playPauseBtn.addEventListener("click", () => {
-  if (audioPlayer.paused) {
-    audioPlayer.play().catch(() => {}); // tenta tocar a música
-    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-    sessionStorage.setItem("playerPaused", "false");
-  } else {
-    audioPlayer.pause();
-    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-    sessionStorage.setItem("playerPaused", "true");
+  if (filtradas.length === 0) {
+    results.innerHTML = "<p>Nenhuma música encontrada.</p>";
+    return;
   }
-});
 
-// atualiza o tempo e a barra de progresso
-audioPlayer.addEventListener("timeupdate", () => {
-  if (audioPlayer.duration) {
-    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    progressBar.value = progress;
-    currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
-  }
-});
-
-// quando os metadados da música carregam (ex: duração total)
-audioPlayer.addEventListener("loadedmetadata", () => {
-  totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
-});
-
-// ao mudar a posição da barra de progresso
-progressBar.addEventListener("change", () => {
-  if (audioPlayer.duration) {
-    const seekTime = (progressBar.value / 100) * audioPlayer.duration;
-    audioPlayer.currentTime = seekTime;
-  }
-});
-
-// controles de volume
-const volumeSlider = document.getElementById("volume-slider");
-const volumeDown = document.getElementById("volume-down");
-const volumeUp = document.getElementById("volume-up");
-
-volumeSlider.addEventListener("input", () => {
-  audioPlayer.volume = volumeSlider.value;
-});
-
-volumeDown.addEventListener("click", () => {
-  audioPlayer.volume = Math.max(0, audioPlayer.volume - 0.1);
-  volumeSlider.value = audioPlayer.volume.toFixed(2);
-});
-
-volumeUp.addEventListener("click", () => {
-  audioPlayer.volume = Math.min(1, audioPlayer.volume + 0.1);
-  volumeSlider.value = audioPlayer.volume.toFixed(2);
-});
-
-// evento de tecla (space para play/pause)
-document.addEventListener("keydown", (event) => {
-  const isTyping = ["INPUT", "TEXTAREA"].includes(document.activeElement.tagName);
-  if (event.code === "Space" && !isTyping) {
-    event.preventDefault();
-    if (audioPlayer.paused) {
-      audioPlayer.play().catch(() => {});
-      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-      sessionStorage.setItem("playerPaused", "false");
-    } else {
-      audioPlayer.pause();
-      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-      sessionStorage.setItem("playerPaused", "true");
-    }
-  }
-});
-
-// função de embaralhamento da playlist
-function shufflePlaylist(array) {
-  return array
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
+  filtradas.forEach((musica) => {
+    const card = document.createElement("div");
+    card.classList.add("music-card");
+    card.innerHTML = `
+      <img src="${musica.cover}" alt="Capa de ${musica.title}">
+      <h4>${musica.title}</h4>
+      <p>${musica.artist} • ${musica.genre}</p>
+    `;
+    card.addEventListener("click", () => tocarMusica(musica));
+    results.appendChild(card);
+  });
 }
 
-// evento do botão de shuffle
-document.getElementById("shuffle-btn").addEventListener("click", () => {
-  isShuffle = !isShuffle;
-  const shuffleBtn = document.getElementById("shuffle-btn");
-  shuffleBtn.classList.toggle("active", isShuffle);
+function tocarMusica(musica) {
+  const audio = document.getElementById("audio-player");
+  const capa = document.getElementById("track-cover");
+  const titulo = document.getElementById("track-title");
+  const artista = document.getElementById("track-artist");
+  const playerBar = document.getElementById("player-bar");
 
-  playlist = isShuffle ? shufflePlaylist([...originalPlaylist]) : [...originalPlaylist];
-  currentIndex = 0;
-  playTrack(currentIndex);
-});
+  audio.src = musica.src;
+  capa.src = musica.cover;
+  titulo.textContent = musica.title;
+  artista.textContent = `${musica.artist} • ${musica.genre}`;
+  playerBar.classList.remove("hidden");
 
-// quando a faixa acaba, passa para a próxima
-audioPlayer.addEventListener("ended", () => {
-  // atualiza o tempo total de reprodução no localStorage
-  const tempoTotal = parseInt(localStorage.getItem("tempoTotalReproducao") || "0");
-  localStorage.setItem("tempoTotalReproducao", tempoTotal + Math.floor(audioPlayer.duration));
+  audio.play();
 
-  currentIndex++;
-  if (currentIndex >= playlist.length) currentIndex = 0; // volta para o começo
-  playTrack(currentIndex);
-});
+  const playBtn = document.getElementById("play-pause-btn");
+  playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+}
+
+function mostrarHistorico() {
+  const box = document.createElement("div");
+  box.id = "history-box";
+  box.innerHTML = "<h4>Histórico de buscas:</h4>";
+  historicoBuscas.forEach((termo) => {
+    const item = document.createElement("button");
+    item.textContent = termo;
+    item.classList.add("history-item");
+    item.addEventListener("click", () => {
+      input.value = termo;
+      buscarMusicas(termo);
+      suggestionsBox.innerHTML = "";
+    });
+    box.appendChild(item);
+  });
+
+  results.prepend(box);
+}
+
+function mostrarSugestoes(termo) {
+  suggestionsBox.innerHTML = "";
+
+  const sugestoes = musicas
+    .map((m) => [m.title, m.artist])
+    .flat()
+    .map(normalizarTexto)
+    .filter((s) => s.startsWith(termo));
+
+  const unicas = [...new Set(sugestoes)].slice(0, 5);
+
+  unicas.forEach((sugestao) => {
+    const item = document.createElement("div");
+    item.classList.add("suggestion-item");
+    item.textContent = sugestao;
+    item.addEventListener("click", () => {
+      input.value = sugestao;
+      buscarMusicas(sugestao);
+      suggestionsBox.innerHTML = "";
+    });
+    suggestionsBox.appendChild(item);
+  });
+}
+
+if (historicoBuscas.length > 0) {
+  mostrarHistorico();
+}

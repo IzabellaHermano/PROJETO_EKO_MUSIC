@@ -1,0 +1,126 @@
+/* Garante que o body nunca tenha rolagem lateral */
+body {
+  overflow-x: hidden;
+}
+
+/* Seção de busca */
+#search-section {
+  margin-top: 20px;
+  position: relative;
+  max-width: 100%;
+}
+
+/* Campo de busca */
+#search-input {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 20px;
+  background-color: #ffffff10;
+  color: white;
+  box-sizing: border-box;
+}
+
+#search-input::placeholder {
+  color: #ccc;
+}
+
+/* Resultados */
+#search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Cartões de música */
+.music-card {
+  background-color: #ffffff10;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+  box-sizing: border-box;
+}
+
+.music-card:hover {
+  background-color: #ffffff20;
+  transform: scale(1.03);
+}
+
+.music-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.music-card h4 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.music-card p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+
+#suggestions-box {
+  position: relative;
+  background-color: #ffffff10;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 50px; 
+  width: 100%;
+  max-width: 600px;
+  z-index: 5;
+  color: white;
+  max-height: 200px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #ffffff20;
+}
+
+.suggestion-item:hover {
+  background-color: #ffffff20;
+}
+
+/* Histórico */
+#history-box {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.history-item {
+  background-color: #ffffff10;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.history-item:hover {
+  background-color: #ffffff30;
+}
+
+#search-section {
+  overflow-x: hidden;
+  padding-right: 20px;
+}
