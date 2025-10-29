@@ -1,3 +1,4 @@
+// pega os elementos do player
 const audioPlayer = document.getElementById("audio-player");
 const trackCover = document.getElementById("track-cover");
 const trackTitle = document.getElementById("track-title");
@@ -7,10 +8,12 @@ const progressBar = document.getElementById("progress-bar");
 const currentTimeDisplay = document.getElementById("current-time");
 const totalTimeDisplay = document.getElementById("total-time");
 
+// variáveis para controlar a faixa atual
 let currentTrack = "";
 let currentIndex = -1;
-let isShuffle = false;
+let isShuffle = false; // se o shuffle estiver ativado
 
+// playlist random
 const originalPlaylist = [
   { 
     src: "assets/musicasmp3/tears.mp3", 
@@ -315,17 +318,47 @@ const originalPlaylist = [
   }
 ];
 
+// cria uma cópia da playlist original
 let playlist = [...originalPlaylist];
 
+// recupera os dados da última faixa tocada
+const trackData = JSON.parse(sessionStorage.getItem("trackData"));
+const wasPaused = sessionStorage.getItem("playerPaused") === "true";
+
+// se tiver dados da faixa salva, retoma a reprodução
+if (trackData) {
+  audioPlayer.src = trackData.src;
+  audioPlayer.currentTime = trackData.currentTime || 0;
+  audioPlayer.load();
+
+  audioPlayer.addEventListener("canplay", () => {
+    if (!wasPaused) {
+      audioPlayer.play().catch(() => {}); // tenta tocar a faixa
+      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    }
+  }, { once: true });
+
+  trackTitle.textContent = trackData.title;
+  trackArtist.textContent = trackData.artist;
+  trackCover.src = trackData.cover;
+  document.getElementById("player-bar").classList.add("ativo");
+
+  sessionStorage.removeItem("trackData");
+}
+
+// função para formatar o tempo
 function formatTime(seconds) {
   const min = Math.floor(seconds / 60);
   const sec = Math.floor(seconds % 60);
   return `${min}:${sec < 10 ? "0" + sec : sec}`;
 }
 
+// função para tocar a faixa escolhida
 function playTrack(index) {
   const track = playlist[index];
-  if (!track) return;
+  if (!track) return; // se não tiver faixa, não faz nada
 
   currentTrack = track.src;
   currentIndex = index;
@@ -333,14 +366,16 @@ function playTrack(index) {
   audioPlayer.pause();
   audioPlayer.src = track.src;
   audioPlayer.load();
-  audioPlayer.play().catch(() => { });
+  audioPlayer.play().catch(() => {});
   playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
   trackTitle.textContent = track.title;
   trackArtist.textContent = `${track.artist} • ${track.genre || "Gênero indefinido"}`;
   trackCover.src = track.cover;
   document.getElementById("player-bar").classList.add("ativo");
+  sessionStorage.setItem("playerPaused", "false");
 }
 
+// função para tocar faixa pelo src
 function playTrackBySrc(src) {
   const index = playlist.findIndex(track => track.src === src);
   if (index !== -1) {
@@ -350,6 +385,7 @@ function playTrackBySrc(src) {
   }
 }
 
+// evento de clique nas capas das faixas
 document.querySelectorAll(".cover-container").forEach(container => {
   container.addEventListener("click", () => {
     const audioSrc = container.getAttribute("data-audio");
@@ -360,7 +396,6 @@ document.querySelectorAll(".cover-container").forEach(container => {
 
     if (!audioSrc) return;
 
-    // Atualiza playlist visualmente
     trackTitle.textContent = title;
     trackArtist.textContent = `${artist} • ${style}`;
     trackCover.src = cover;
@@ -370,16 +405,20 @@ document.querySelectorAll(".cover-container").forEach(container => {
   });
 });
 
+// evento de play/pause
 playPauseBtn.addEventListener("click", () => {
   if (audioPlayer.paused) {
-    audioPlayer.play().catch(() => { });
+    audioPlayer.play().catch(() => {}); // tenta tocar a música
     playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    sessionStorage.setItem("playerPaused", "false");
   } else {
     audioPlayer.pause();
     playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    sessionStorage.setItem("playerPaused", "true");
   }
 });
 
+// atualiza o tempo e a barra de progresso
 audioPlayer.addEventListener("timeupdate", () => {
   if (audioPlayer.duration) {
     const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
@@ -388,10 +427,12 @@ audioPlayer.addEventListener("timeupdate", () => {
   }
 });
 
+// quando os metadados da música carregam (ex: duração total)
 audioPlayer.addEventListener("loadedmetadata", () => {
   totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
 });
 
+// ao mudar a posição da barra de progresso
 progressBar.addEventListener("change", () => {
   if (audioPlayer.duration) {
     const seekTime = (progressBar.value / 100) * audioPlayer.duration;
@@ -399,6 +440,7 @@ progressBar.addEventListener("change", () => {
   }
 });
 
+// controles de volume
 const volumeSlider = document.getElementById("volume-slider");
 const volumeDown = document.getElementById("volume-down");
 const volumeUp = document.getElementById("volume-up");
@@ -417,20 +459,24 @@ volumeUp.addEventListener("click", () => {
   volumeSlider.value = audioPlayer.volume.toFixed(2);
 });
 
+// evento de tecla (space para play/pause)
 document.addEventListener("keydown", (event) => {
   const isTyping = ["INPUT", "TEXTAREA"].includes(document.activeElement.tagName);
   if (event.code === "Space" && !isTyping) {
     event.preventDefault();
     if (audioPlayer.paused) {
-      audioPlayer.play().catch(() => { });
+      audioPlayer.play().catch(() => {});
       playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      sessionStorage.setItem("playerPaused", "false");
     } else {
       audioPlayer.pause();
       playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      sessionStorage.setItem("playerPaused", "true");
     }
   }
 });
 
+// função de embaralhamento da playlist
 function shufflePlaylist(array) {
   return array
     .map(value => ({ value, sort: Math.random() }))
@@ -438,6 +484,7 @@ function shufflePlaylist(array) {
     .map(({ value }) => value);
 }
 
+// evento do botão de shuffle
 document.getElementById("shuffle-btn").addEventListener("click", () => {
   isShuffle = !isShuffle;
   const shuffleBtn = document.getElementById("shuffle-btn");
@@ -448,8 +495,13 @@ document.getElementById("shuffle-btn").addEventListener("click", () => {
   playTrack(currentIndex);
 });
 
+// quando a faixa acaba, passa para a próxima
 audioPlayer.addEventListener("ended", () => {
+  // atualiza o tempo total de reprodução no localStorage
+  const tempoTotal = parseInt(localStorage.getItem("tempoTotalReproducao") || "0");
+  localStorage.setItem("tempoTotalReproducao", tempoTotal + Math.floor(audioPlayer.duration));
+
   currentIndex++;
-  if (currentIndex >= playlist.length) currentIndex = 0;
+  if (currentIndex >= playlist.length) currentIndex = 0; // volta para o começo
   playTrack(currentIndex);
 });

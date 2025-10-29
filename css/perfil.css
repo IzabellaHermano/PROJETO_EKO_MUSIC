@@ -211,3 +211,17 @@ section h2 {
   font-size: 0.9rem;
   display: none;
 }
+
+.excluir-conta {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.excluir-conta:hover {
+  background-color: #e74c3c;
+}

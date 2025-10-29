@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/popupsair.css" />
     <link rel="stylesheet" href="css/perfil.css" />
-    <link rel="icon" href="assets/identidade_visual/BrandMark_Mascot - Transparente.png" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="assets/identidade_visual/BrandMark_Mascot - Transparente.png"
+      type="image/x-icon"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -30,7 +34,8 @@
       </div>
       <div class="popup" id="popup">
         <div class="popup-content">
-          <span id="confirmar">Tem certeza de que deseja sair?</span><br><br>
+          <span id="confirmar">Tem certeza de que deseja sair?</span
+          ><br /><br />
           <a href="index.html"><button>Sair</button></a>
           <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
         </div>
@@ -171,7 +176,7 @@
         <h2><i class="fa-solid fa-music"></i> Preferências de Músicas</h2>
 
         <div class="campo">
-          <strong>Gênero Favorito:</strong>
+          <strong>Gêneros Favoritos:</strong>
           <span id="generosfavs"></span>
           <div id="generosfavsInput" multiple style="display: none">
             <label><input type="checkbox" value="rock" /> Rock</label><br />
@@ -273,9 +278,25 @@
         <button class="editar" id="editarSegurancaBtn">
           <i class="fas fa-pen"></i> Editar Informações
         </button>
+        <button id="excluirContaBtn" class="excluir-conta">
+          <i class="fas fa-trash-alt"></i> Excluir Conta
+        </button>
+
+        <div id="popupExcluirConta" class="popup-senha" style="display: none">
+          <div class="popup-conteudo">
+            <h3>Tem certeza que deseja excluir sua conta?</h3>
+            <p>
+              Essa ação é irreversível e todos os seus dados serão apagados.
+            </p>
+            <div class="popup-botoes">
+              <button id="confirmarExclusao">Confirmar</button>
+              <button id="cancelarExclusao">Cancelar</button>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="configuracoes-preferencias">
+      <!-- <section class="configuracoes-preferencias">
         <h2>
           <i class="fa-solid fa-screwdriver-wrench"></i> Configurações e
           Preferências
@@ -321,7 +342,7 @@
         <button class="editar" id="editarConfiguracoesBtn">
           <i class="fas fa-pen"></i> Editar Informações
         </button>
-      </section>
+      </section> -->
 
       <section class="estatisticas-usuario">
         <h2><i class="fa-solid fa-chart-simple"></i> Estatísticas</h2>
@@ -329,11 +350,6 @@
         <div class="campo">
           <strong>Tempo total de reprodução:</strong>
           <span id="tempoReproducao"></span>
-        </div>
-
-        <div class="campo">
-          <strong>Músicas mais ouvidas:</strong>
-          <span id="musicasMaisOuvidas"></span>
         </div>
 
         <div class="campo">
