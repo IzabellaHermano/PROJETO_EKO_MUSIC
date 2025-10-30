@@ -11,17 +11,23 @@ Permite que o usuário acesse sua conta e utilize recursos personalizados.
 ### 2. Tela de Cadastro  
 Interface para novos usuários criarem suas contas pessoais.  
 ![Tela de Cadastro](https://user-images.githubusercontent.com/seu-usuario/gif-cadastro.gif)
+### 2. Tela de Recuperação de Senha  
+Permite que o usuário recupere sua senha e entre novamente em sua conta.  
+![Tela de Recuperação de Senha](https://user-images.githubusercontent.com/seu-usuario/gif-cadastro.gif)
 ### 3. Tela de Catálogo (Home)  
-Exibe uma lista ou grade de músicas e álbuns disponíveis para exploração.  
+Exibe uma lista e grade de músicas, álbuns e playlists disponíveis para exploração.  
 ![Tela de Catálogo](https://user-images.githubusercontent.com/seu-usuario/gif-catalogo.gif)
-### 4. Tela de Detalhes  
-Mostra informações detalhadas sobre uma música ou álbum selecionado.  
+### 4. Tela de Detalhes (Popup) 
+Mostra informações detalhadas sobre um álbum selecionado.  
 ![Tela de Detalhes](https://user-images.githubusercontent.com/seu-usuario/gif-detalhes.gif)
-### 5. Tela de Reprodução do Conteúdo  
+### 5. Tela de Reprodução do Conteúdo (player em todas as páginas)  
 Interface dedicada à reprodução musical, com controles de play, pause, avanço, volume e barra de progresso.  
 ![Tela de Reprodução](https://user-images.githubusercontent.com/seu-usuario/gif-player.gif)
-### 6. Tela de Favoritos  
-Área onde o usuário pode visualizar e acessar rapidamente suas músicas favoritas.  
+### 6. Tela de Blibioteca 
+Área onde o usuário pode visualizar e acessar rapidamente suas músicas favoritas, criar e acessar suas playlists.  
+![Tela de Favoritos](https://user-images.githubusercontent.com/seu-usuario/gif-favoritos.gif)
+### 6. Tela de Perfil
+Área onde o usuário pode visualizar, acessar e editar suas informações pessoais.  
 ![Tela de Favoritos](https://user-images.githubusercontent.com/seu-usuario/gif-favoritos.gif)
 ---
 ## Tecnologias Utilizadas
