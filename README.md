@@ -1,9 +1,8 @@
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=1815c2&height=200&section=header&text=Eko%20Music&fontSize=40&fontColor=f2f5f7&animation=fadeIn&fontAlignY=35" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=1815c2&color=#ff38b6&height=200&section=header&text=Eko%20Music&fontSize=40&fontColor=f2f5f7&animation=fadeIn&fontAlignY=35" />
 </p>
 
-<!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <h1 align="center">
@@ -112,5 +111,5 @@ Ele simula um serviço completo de streaming musical com autenticação, catálo
 </ol>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=1815c2&height=120&section=footer"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=1815c2&color=#ff38b6&height=120&section=footer"/>
 </p>
