@@ -12,20 +12,28 @@ body {
 
 /* Campo de busca */
 #search-input {
-  width: 100%;
-  max-width: 600px;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  margin-bottom: 20px;
-  background-color: #ffffff10;
-  color: white;
-  box-sizing: border-box;
+ width: 100%;
+ max-width: 600px;
+ padding: 12px 20px;
+ font-size: 16px;
+ border-radius: 8px;
+ border: 2px solid transparent;
+ margin-bottom: 20px;
+ background-color: #ffffff10;
+ color: white;
+ box-sizing: border-box;
+ outline: none;
+ transition: border 0.3s, box-shadow 0.3s;
 }
 
 #search-input::placeholder {
-  color: #ccc;
+ color: #ccc;
+}
+
+#search-input:focus {
+ border: 2px solid rgba(255, 56, 182, 0.5); 
+ box-shadow: 0 0 8px rgba(255, 56, 182, 0.3);
+ outline: none;
 }
 
 /* Resultados */
