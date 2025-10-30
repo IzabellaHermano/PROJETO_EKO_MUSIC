@@ -1,6 +1,6 @@
 <!-- 🌸 HEADER ANIMADO -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=1db954&height=200&section=header&text=Eko%20Music&fontSize=40&fontColor=f2f5f7&animation=fadeIn&fontAlignY=35" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=1815c2&height=200&section=header&text=Eko%20Music&fontSize=40&fontColor=f2f5f7&animation=fadeIn&fontAlignY=35" />
 </p>
 
 <h1 align="center">🎵 Bem-vindo(a) ao Projeto <b>Eko Music</b> 🎶</h1>
@@ -106,5 +106,5 @@ Ele simula um serviço completo de streaming musical com autenticação, catálo
 </ol>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=1db954&height=120&section=footer"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=1815c2&height=120&section=footer"/>
 </p>
