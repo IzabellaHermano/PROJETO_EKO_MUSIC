@@ -11,19 +11,25 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <script
-      src="https://kit.fontawesome.com/b690a6b06f.js"
-      crossorigin="anonymous"
-    ></script>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-papYc5V7+KZHu3N5M3sUiwc1zEdKk6VJxNQDxztD1vZig0eO7CAGb3i8g2zEXvBv4pMQu0HjT+2rX2R7m6/9ZA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
     <link rel="stylesheet" href="css/explorar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <script src="https://kit.fontawesome.com/b690a6b06f.js" crossorigin="anonymous"></script>
     <title>Explorar - Eko Music</title>
   </head>
   <body>
     <header>
       <div class="logo-container">
-        <img src="assets/identidade_visual/Combination Mark Horizontal - Light.png" alt="Logo" />
+        <img
+          src="assets/identidade_visual/Combination Mark Horizontal - Light.png"
+          alt="Logo"
+        />
       </div>
       <div class="header-buttons">
         <a href="perfil.html"><button>Perfil</button></a>
@@ -31,19 +37,35 @@
       </div>
       <div class="popup" id="popup">
         <div class="popup-content">
-          <span id="confirmar">Tem certeza de que deseja sair?</span><br><br>
+          <span id="confirmar">Tem certeza de que deseja sair?</span
+          ><br /><br />
           <a href="index.html"><button>Sair</button></a>
           <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
         </div>
       </div>
+      <button class="menu-toggle" aria-label="Abrir menu">
+  <i class="fas fa-bars"></i>
+</button>
+
+
     </header>
 
     <nav id="sidebar">
       <ul>
-        <li><a href="home.html#main"><i class="fas fa-house"></i> Início</a></li>
-        <li><a href="explorar.html" class="active"><i class="fas fa-compass"></i> Explorar</a></li>
-        <li><a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a></li>
+        <li>
+          <a href="home.html"><i class="fas fa-house"></i> Início</a>
+        </li>
+        <li>
+          <a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a>
+        </li>
+        <li>
+          <a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a>
+        </li>
       </ul>
+
+      <div class="mobile-actions" aria-hidden="true">
+    <!-- será preenchido automaticamente -->
+  </div>
     </nav>
 
     <main>
@@ -113,5 +135,6 @@
     <script src="scripts/player-session.js"></script>
     <script src="scripts/playerbar.js"></script>
     <script src="scripts/explorar.js"></script>
+    <script src="scripts/sandwich.js"></script>
   </body>
 </html>

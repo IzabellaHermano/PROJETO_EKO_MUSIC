@@ -25,11 +25,12 @@
     <header>
       <div class="logo-container">
         <img
-          src="assets/identidade_visual/Combination Mark Horizontal - Light.png "
+          src="assets/identidade_visual/Combination Mark Horizontal - Light.png"
           alt="Logo"
         />
       </div>
       <div class="header-buttons">
+        <a href="perfil.html"><button>Perfil</button></a>
         <button onclick="abrirPopUp()">Sair</button>
       </div>
       <div class="popup" id="popup">
@@ -40,11 +41,15 @@
           <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
         </div>
       </div>
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </header>
+
     <nav id="sidebar">
       <ul>
         <li>
-          <a href="home.html#main"><i class="fas fa-house"></i> Início</a>
+          <a href="home.html"><i class="fas fa-house"></i> Início</a>
         </li>
         <li>
           <a href="explorar.html"><i class="fas fa-compass"></i> Explorar</a>
@@ -53,6 +58,10 @@
           <a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a>
         </li>
       </ul>
+
+      <div class="mobile-actions" aria-hidden="true">
+        <!-- será preenchido automaticamente -->
+      </div>
     </nav>
 
     <main>
@@ -364,5 +373,6 @@
     <script src="scripts/popupsair.js"></script>
     <script src="scripts/perfil.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/sandwich.js"></script>
   </body>
 </html>

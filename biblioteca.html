@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/popupsair.css" />
     <link rel="stylesheet" href="css/playlists.css" />
-    <link rel="stylesheet" href="css/popupFavorito.css">
+    <link rel="stylesheet" href="css/popupFavorito.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -35,6 +35,9 @@
           <button class="close-btn" onclick="fecharPopup()">Cancelar</button>
         </div>
       </div>
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </header>
 
     <nav id="sidebar">
@@ -49,6 +52,10 @@
           <a href="biblioteca.html"><i class="fas fa-list"></i> Biblioteca</a>
         </li>
       </ul>
+
+      <div class="mobile-actions" aria-hidden="true">
+        <!-- será preenchido automaticamente -->
+      </div>
     </nav>
 
     <main>
@@ -669,7 +676,7 @@
               data-genre="Funk"
               data-album=""
             />
-           Vou Desafiar Você - MC Sapão </label
+            Vou Desafiar Você - MC Sapão </label
           ><br />
 
           <label>
@@ -756,5 +763,6 @@
     <script src="scripts/biblioteca.js"></script>
     <script src="scripts/player-session.js"></script>
     <script src="scripts/popupsair.js"></script>
+    <script src="scripts/sandwich.js"></script>
   </body>
 </html>
