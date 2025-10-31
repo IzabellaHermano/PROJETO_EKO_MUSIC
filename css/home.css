@@ -229,6 +229,9 @@
   .album-grid-container {
     position: relative;
   }
+  .playlist-grid-container {
+    position: relative;
+  }
 
   .carousel-btn {
     position: absolute;
@@ -269,11 +272,28 @@
     padding: 10px 0;
   }
 
+  .playlist-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+  }
+
   .album-grid::-webkit-scrollbar {
     display: none;
   }
 
+  .playlist-grid::-webkit-scrollbar {
+    display: none;
+  }
+
   .album-card {
+    flex: 0 0 auto;
+    width: 140px;
+  }
+
+  .playlist-card {
     flex: 0 0 auto;
     width: 140px;
   }
